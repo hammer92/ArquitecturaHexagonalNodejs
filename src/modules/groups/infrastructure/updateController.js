@@ -1,6 +1,6 @@
 const {updateGroupCase} = require('../application')
 const {groupRepository} = require('./repositories')
-const {errorSerializer} = require('./serializer')
+const {error, response} = require('./serializer')
 module.exports = {
     invoke(req, res) {
 
@@ -8,11 +8,7 @@ module.exports = {
         handler.execute({
             idGroup: req.params.idGroup,
             updateForm: req.body
-        }).then((group) => {
-            res.status(201).json(group)
-        }).catch((e) => {
-            errorSerializer.json(e, res)
-            res.end()
-        })
+        }).then((group) => response.valid({status:201, data:group}, res))
+            .catch((e) => error.jsonError(e, res))
     }
 }

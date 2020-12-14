@@ -10,6 +10,6 @@ module.exports = {
                 status: 201,
                 data: group
             }, res)
-        }).catch(e => error.internal(e, res))
+        }).catch(e => error.jsonError(e, res))
     }
 }
