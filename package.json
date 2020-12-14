@@ -1,0 +1,33 @@
+{
+  "name": "pharmasan",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "celebrate": "^13.0.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "glob": "^7.1.6",
+    "method-override": "^3.0.0",
+    "nodemon": "^2.0.6",
+    "sequelize-cli": "^6.2.0",
+    "winston": "^3.3.3"
+  },
+  "dependencies": {
+    "@sap/hana-client": "^2.6.64",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "hdb": "^0.18.2",
+    "mariadb": "^2.5.2",
+    "mysql2": "^2.2.5",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
+  }
+}
