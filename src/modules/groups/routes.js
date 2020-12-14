@@ -1,6 +1,8 @@
 const hana = require('../../loaders/hana')
 module.exports = (router) => {
-    router.get('/groups', require('./infrastructure/listController').invoke)
+    router.get('/groups',
+        require('./infrastructure/request/list'),
+        require('./infrastructure/listController').invoke)
 
     router.post('/groups',
         require('./infrastructure/request/bodyCreate'),

@@ -5,7 +5,7 @@ module.exports =  {
     async invoke (req, res) {
 
         const handler = new listGroupCase(groupRepository)
-        handler.execute(req.body).then(listed => {
+        handler.execute(req.body, req.query).then(listed => {
             return response.valid({
                 status: 201,
                 data: listed
