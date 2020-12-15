@@ -2,8 +2,8 @@ const GroupEntity = require('../domain/Entity')
 const notFound = require('../domain/exceptions/groupNotFound')
 module.exports = class {
 
-    constructor (Repository) {
-        this.repository = Repository
+    constructor (authGpsRepository) {
+        this.repository = authGpsRepository
     }
 
     execute ({ idGroup, updateForm }) {

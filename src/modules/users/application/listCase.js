@@ -1,7 +1,7 @@
 module.exports = class {
 
-    constructor (authGpsRepository) {
-        this.repository = authGpsRepository
+    constructor (authUsrRepository) {
+        this.repository = authUsrRepository
     }
 
     async execute (query) {

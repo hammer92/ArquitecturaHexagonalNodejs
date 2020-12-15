@@ -1,6 +1,6 @@
-const groupRepository = require('./groupRepository')
+const authGpsRepository = require('./authGpsRepository')
 const { AuthGps, AuthUsr, Sequelize } = require('../../../../loaders/sequelize');
 
 module.exports = {
-    groupRepository: new groupRepository(AuthGps, AuthUsr, Sequelize)
+    authGpsRepository: new authGpsRepository(AuthGps, AuthUsr, Sequelize)
 }

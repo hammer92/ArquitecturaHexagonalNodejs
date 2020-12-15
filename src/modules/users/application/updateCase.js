@@ -2,13 +2,13 @@ const entity = require('../domain/Entity')
 const notFound = require('../domain/exceptions/notFound')
 module.exports = class {
 
-    constructor (Repository) {
-        this.repository = Repository
+    constructor (authUsrRepository) {
+        this.repository = authUsrRepository
     }
 
-    execute ({ idPermission, updateForm }) {
+    execute ({ idUser, updateForm }) {
         return  new Promise((resolve, reject) => {
-            this.repository.findById(idPermission).then((find)=>{
+            this.repository.findById(idUser).then((find)=>{
 
                 const entityFromDB = this.buildEntityFromDB(find)
 
@@ -16,13 +16,13 @@ module.exports = class {
                     entityFromDB[field] = updateForm[field]
                 }
 
-                this.repository.update(idPermission, entityFromDB).then((update) =>{
+                this.repository.update(idUser, entityFromDB).then((update) =>{
                     if(update){
                         resolve(find.reload())
                     }
                 }).catch(reject)
             }).catch(() => {
-                reject(new notFound(idPermission))
+                reject(new notFound(idUser))
             })
 
         });

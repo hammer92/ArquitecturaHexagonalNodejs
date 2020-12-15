@@ -1,8 +1,8 @@
 const Entity = require('../domain/Entity')
 module.exports = class {
 
-    constructor (Repository) {
-        this.repository = Repository
+    constructor (authPerRepository) {
+        this.repository = authPerRepository
     }
 
     execute ({ Name, Description, Action }) {
