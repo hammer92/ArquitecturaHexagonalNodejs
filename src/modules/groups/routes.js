@@ -1,21 +1,19 @@
 const hana = require('../../loaders/hana')
+const request = require('./infrastructure/request')
+const controller = require('./infrastructure')
 module.exports = (router) => {
-    router.get('/groups',
-        require('./infrastructure/request/list'),
-        require('./infrastructure/listController').invoke)
+    router.get('/groups', request.paginate,
+        controller.listController.invoke)
 
-    router.post('/groups',
-        require('./infrastructure/request/bodyCreate'),
-        require('./infrastructure/createController').invoke)
+    router.post('/groups', request.create,
+        controller.createController.invoke)
 
-    router.put('/groups/:idGroup',
-        require('./infrastructure/request/bodyUpdate'),
-        require('./infrastructure/updateController').invoke)
-    /*
-    router.delete('/groups/:idGroup',
-        require('./infrastructure/request/paramsFindId'),
-        require('../groups/infrastructure/request/paramsFindId'),
-        require('./infrastructure/deleteController').invoke)*/
+    router.put('/groups/:idGroup', request.update,
+        controller.updateController.invoke)
+
+    router.delete('/groups/:idGroup', request.pk,
+        controller.deleteController.invoke)
+
 
     router.get('/hana',(req, res)=>{
         hana(`SELECT

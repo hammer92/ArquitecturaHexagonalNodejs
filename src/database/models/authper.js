@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const sequelizePaginate = require('sequelize-paginate')
+
 module.exports = (sequelize, DataTypes) => {
   class AuthPer extends Model {
     /**
@@ -22,5 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'AuthPer',
     modelName: 'AuthPer',
   });
+  sequelizePaginate.paginate(AuthPer)
   return AuthPer;
 };

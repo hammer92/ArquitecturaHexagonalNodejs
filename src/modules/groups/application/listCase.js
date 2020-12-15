@@ -4,8 +4,8 @@ module.exports = class {
         this.groupRepository = groupRepository
     }
 
-    async execute () {
-        return  this.groupRepository.list()
+    async execute (query) {
+        return  this.groupRepository.list(query)
     }
 
 }

@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const sequelizePaginate = require('sequelize-paginate')
 
 module.exports = (sequelize, DataTypes) => {
 
@@ -24,5 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'AuthGps',
     modelName: 'AuthGps',
   });
+  sequelizePaginate.paginate(AuthGps)
   return AuthGps;
 };

@@ -1,16 +1,15 @@
 
 module.exports = class {
 
-    constructor(Group, User, sequelize) {
-        this.group = Group
-        this.user = User
+    constructor(authPer, User, sequelize) {
+        this.model = authPer
         this.sequelize = sequelize
     }
 
-    list({page, paginate, order, search}) {
+    list({ attributes, page, paginate, order, search }) {
 
         let options = {
-            attributes: ['id', 'Name'],
+            attributes: attributes || ['id', 'Name', 'Action'],
             where: {}
         }
 
@@ -19,19 +18,19 @@ module.exports = class {
         if(order) options["order"] = order
         if(search) options['where']['Name'] = { [this.sequelize.Op.like]: `%${search}%` }
 
-        return  this.group.paginate(options);
+        return  this.model.paginate(options);
     }
 
     create(Entity) {
-        return this.group.create(Entity);
+        return this.model.create(Entity);
     }
 
     findById(Id) {
-        return this.group.findByPk(Id);
+        return this.model.findByPk(Id);
     }
 
     update(Id, Data) {
-        return this.group.update(Data, {
+        return this.model.update(Data, {
             where: {
                 id: Id
             }
@@ -39,7 +38,7 @@ module.exports = class {
     }
 
     delete(Id) {
-        return this.group.destroy({
+        return this.model.destroy({
             where: {
                 id: Id
             }

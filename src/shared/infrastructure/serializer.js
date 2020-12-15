@@ -4,7 +4,7 @@ const NotFound = require('../domain/exceptions/NotFound')
 const jsonError = ({title, status, message}, res) => {
     return res.status(status || 500).json({
         error: {
-            title: title || "Error",
+            title: title || "Error Server",
             detail: message || "Interno del servidor"
         }
     })

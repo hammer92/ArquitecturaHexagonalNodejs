@@ -1,5 +1,5 @@
 const GroupEntity = require('../domain/Entity')
-
+const notFound = require('../domain/exceptions/groupNotFound')
 module.exports = class {
 
     constructor (Repository) {
@@ -21,7 +21,9 @@ module.exports = class {
                         resolve(find.reload())
                     }
                 }).catch(reject)
-            }).catch(reject)
+            }).catch(() => {
+                reject(new notFound(idGroup))
+            })
 
         });
     }
