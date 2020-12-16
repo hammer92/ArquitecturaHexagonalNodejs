@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const sequelizePaginate = require('sequelize-paginate')
+
 module.exports = (sequelize, DataTypes) => {
   class AuthPerAct extends Model {
     /**
@@ -12,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   AuthPerAct.init({
     PKAuthPer: DataTypes.INTEGER,
     State: DataTypes.BOOLEAN,
@@ -23,5 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'AuthPerAct',
     modelName: 'AuthPerAct',
   });
+  sequelizePaginate.paginate(AuthPerAct)
   return AuthPerAct;
 };

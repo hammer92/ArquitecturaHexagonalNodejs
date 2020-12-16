@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   AuthPer.init({
     Name: DataTypes.STRING,
     Description: DataTypes.STRING,

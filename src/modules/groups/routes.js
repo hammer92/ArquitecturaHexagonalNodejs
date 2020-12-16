@@ -14,6 +14,12 @@ module.exports = (router) => {
     router.delete('/groups/:idGroup', request.pk,
         controller.deleteController.invoke)
 
+    router.get('/groups/:idGroup/permissions', request.pk,
+        controller.assignPerListController.invoke)
+
+    router.post('/groups/:idGroup/permissions', request.pk,
+        controller.assignPerCrearController.invoke)
+
 
     router.get('/hana',(req, res)=>{
         hana(`SELECT

@@ -9,8 +9,8 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       PKAuthPer: {
-        type: Sequelize.INTEGER,
-        references: { model: 'AuthPer', key: 'id' }
+        type: Sequelize.STRING,
+        references: { model: 'AuthPer', key: 'Action' }
       },
       State: {
         type: Sequelize.BOOLEAN,

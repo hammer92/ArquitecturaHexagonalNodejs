@@ -1,6 +1,8 @@
 const AuthPerRepository = require('./authPerRepository')
-const { AuthPer, Sequelize } = require('../../../../loaders/sequelize');
+const AuthPerActRepository = require('./authPerActRepository')
+const { AuthPer,AuthPerAct, Sequelize } = require('../../../../loaders/sequelize');
 
 module.exports = {
-    authPerRepository: new AuthPerRepository(AuthPer, Sequelize)
+    authPerRepository: new AuthPerRepository(AuthPer, Sequelize),
+    authPerActRepository: new AuthPerActRepository(AuthPerAct, Sequelize)
 }
