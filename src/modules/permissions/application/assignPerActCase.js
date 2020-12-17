@@ -5,9 +5,9 @@ module.exports = class {
         this.repository = authPerActRepository
     }
 
-    execute ({ PKAuthPer, State, Type, Base }) {
-        const entity = new ActionEntity({ PKAuthPer, State, Type, Base })
-        return this.repository.create(entity)
+    execute ({ PKAuthPer, Type, Base }) {
+        const entity = new ActionEntity({ PKAuthPer, Type, Base })
+        return this.repository.updateOrCreate(entity, {PKAuthPer, Type, Base})
     }
 
 }

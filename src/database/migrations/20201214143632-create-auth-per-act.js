@@ -32,6 +32,12 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('NOW()')
       }
+    },{
+      uniqueKeys: {
+        actions_unique: {
+          fields: ['PKAuthPer', 'Type', 'Base']
+        }
+      }
     });
   },
   down: async (queryInterface, Sequelize) => {
