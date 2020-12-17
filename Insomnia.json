@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-12-17T20:32:54.828Z",
+  "__export_date": "2020-12-17T23:02:59.371Z",
   "__export_source": "insomnia.desktop.app:v2020.5.2",
   "resources": [
     {
@@ -116,7 +116,7 @@
     {
       "_id": "req_b9a40f02ea114eb89ed75ec5c92648af",
       "parentId": "fld_1ce54efaf32d4aa7a9c82fff4dd4a256",
-      "modified": 1608234569494,
+      "modified": 1608245149069,
       "created": 1608213352808,
       "url": "{{API}}/groups/1/permissions",
       "name": "Asignar Permisions",
@@ -124,7 +124,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"PKAuthPer\": \"listar_permission\"\n}"
+        "text": "{\n\t\"PKAuthPer\": \"list_user\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -270,7 +270,7 @@
     {
       "_id": "req_0f2bae98835641788894969a18db0e7a",
       "parentId": "fld_80ee17952ee94dd09b5cc0a458f1607b",
-      "modified": 1608234560266,
+      "modified": 1608245141228,
       "created": 1608219147973,
       "url": "{{API}}/permissions/",
       "name": "Crear",
@@ -278,7 +278,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"Name\": \"listar Permisos\",\n  \"Description\": \"permite la creacion de perimosos\",\n  \"Action\": \"listar_permission\"\n}"
+        "text": "{\n\t\"Name\": \"listar Usuario\",\n  \"Description\": \"permite la creacion de perimosos\",\n  \"Action\": \"list_user\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -392,7 +392,7 @@
     {
       "_id": "req_b7f625b91b1344d28efc896ab37e94d3",
       "parentId": "fld_870fc162a48445bc9963f81fb81af694",
-      "modified": 1608233030659,
+      "modified": 1608244438607,
       "created": 1608215694797,
       "url": "{{API}}/users/",
       "name": "Crear",
@@ -400,7 +400,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"UserName\": \"jpinto0\",\n   \"Password\": \"password\",\n   \"PkAuthGps\": 1\n}"
+        "text": "{\n\t\"UserName\": \"jpinto\",\n   \"Password\": \"password\",\n   \"PkAuthGps\": 1\n}"
       },
       "parameters": [],
       "headers": [
@@ -424,7 +424,7 @@
     {
       "_id": "req_eb3eabae95cb414cad1ab7d3f7d05643",
       "parentId": "fld_870fc162a48445bc9963f81fb81af694",
-      "modified": 1608236328870,
+      "modified": 1608244385438,
       "created": 1608215694809,
       "url": "{{API}}/users/1/permissions",
       "name": "Asignar Permisions",
@@ -432,7 +432,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"PKAuthPer\": \"listar_permission\"\n}"
+        "text": "{\n\t\"PKAuthPer\": \"crear_users\"\n}"
       },
       "parameters": [],
       "headers": [
