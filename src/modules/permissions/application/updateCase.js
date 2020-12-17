@@ -10,6 +10,8 @@ module.exports = class {
         return  new Promise((resolve, reject) => {
             this.repository.findById(idPermission).then((find)=>{
 
+                if(find === null) return reject(new notFound(idPermission))
+
                 const entityFromDB = this.buildEntityFromDB(find)
 
                 for (const field in updateForm) {
@@ -21,9 +23,7 @@ module.exports = class {
                         resolve(find.reload())
                     }
                 }).catch(reject)
-            }).catch(() => {
-                reject(new notFound(idPermission))
-            })
+            }).catch(reject)
 
         });
     }
