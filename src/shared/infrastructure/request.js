@@ -4,7 +4,8 @@ const { ResponseError } = require('./serializer')
 module.exports = {
     check(PKAuthPer, req, res, next) {
         const permission = new checkPerActCase(authPerActRepository)
-        permission.execute({PKAuthPer: "crear_users", idUser: 1})
+        permission.execute({PKAuthPer, idUser: 1})
             .then(()=>next()).catch(e => ResponseError.jsonError(e, res))
-    }
+    },
+    auth(req, res, next) {}
 }
