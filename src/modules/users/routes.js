@@ -4,10 +4,16 @@ module.exports = (router) => {
     router.get('/users', request.paginate,
         controller.listController.invoke)
 
-    router.post('/users', request.create,
+    router.post('/users',
+        (req, res, next) =>
+            request.check("create_user", req, res, next),
+        request.create,
         controller.createController.invoke)
 
-    router.put('/users/:idUser', request.pk,request.update,
+    router.put('/users/:idUser',
+        (req, res, next) =>
+            request.check("update_user", req, res, next),
+        request.pk, request.update,
         controller.updateController.invoke)
 
     router.delete('/users/:idUser', request.pk,
