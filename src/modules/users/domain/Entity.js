@@ -1,11 +1,12 @@
+const {getHash} = require("../../../shared/utils/hash");
 module.exports = class {
 
     constructor({Id = null, UserName, Password, PkAuthGps, Type, Base}) {
         this.Id = Id
         this.UserName = UserName
-        this.Password = Password
+        if(Password) this.Password = getHash(Password)
         this.PkAuthGps = PkAuthGps
-        this.Type = Type
+        this.Type = Type || "General"
         this.Base = Base
     }
 }

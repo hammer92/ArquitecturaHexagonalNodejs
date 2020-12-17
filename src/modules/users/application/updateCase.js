@@ -10,6 +10,8 @@ module.exports = class {
         return  new Promise((resolve, reject) => {
             this.repository.findById(idUser).then((find)=>{
 
+                if(find === null) return reject(new notFound(idUser))
+
                 const entityFromDB = this.buildEntityFromDB(find)
 
                 for (const field in updateForm) {
@@ -17,13 +19,10 @@ module.exports = class {
                 }
 
                 this.repository.update(idUser, entityFromDB).then((update) =>{
-                    if(update){
-                        resolve(find.reload())
-                    }
+                    if(!update) return reject(new Error("Error al Acturalizar"))
+                    resolve(find.reload())
                 }).catch(reject)
-            }).catch(() => {
-                reject(new notFound(idUser))
-            })
+            }).catch(reject)
 
         });
     }

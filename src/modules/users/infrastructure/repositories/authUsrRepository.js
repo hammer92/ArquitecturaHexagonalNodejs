@@ -29,11 +29,15 @@ module.exports = class {
         return this.model.findByPk(Id);
     }
 
-    update(Id, Data) {
+    findByUserName(UserName) {
+        return this.model.findOne({
+            where: { UserName }
+        });
+    }
+
+    update(id, Data) {
         return this.model.update(Data, {
-            where: {
-                id: Id
-            }
+            where: { id }
         });
     }
 

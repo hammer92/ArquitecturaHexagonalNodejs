@@ -6,8 +6,11 @@ module.exports = {
         const handler = new updateCase(authUsrRepository)
         handler.execute({
             idUser: req.params.idUser,
-            updateForm: req.body
-        }).then(group => response.valid({status:201, data:group}, res))
+            updateForm: {
+                UserName: req.body.UserName,
+                PkAuthGps: req.body.PkAuthGps
+            }
+        }).then(user => response.valid({status:201, data:user}, res))
             .catch(e => error.jsonError(e, res))
     }
 }
