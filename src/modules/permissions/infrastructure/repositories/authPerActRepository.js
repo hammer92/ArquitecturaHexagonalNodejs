@@ -44,6 +44,7 @@ module.exports = class {
         const $this = this
         return  new Promise((resolve, reject) => {
             $this.user.findByPk(idUser).then((User) => {
+                if(User.Admin) return resolve({ State:true })
                 $this.model.findOne({
                     attributes: ['State', 'Type'],
                     where: {
