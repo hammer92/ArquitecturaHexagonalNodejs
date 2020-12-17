@@ -1,10 +1,10 @@
-const {updateGroupCase} = require('../application')
+const {updateCase} = require('../application')
 const {authGpsRepository} = require('./repositories')
 const {error, response} = require('./serializer')
 module.exports = {
     invoke(req, res) {
 
-        const handler = new updateGroupCase(authGpsRepository)
+        const handler = new updateCase(authGpsRepository)
         handler.execute({
             idGroup: req.params.idGroup,
             updateForm: req.body

@@ -7,7 +7,7 @@ module.exports = {
         const handler = new assignPerActCase(authPerActRepository)
         handler.execute({
             PKAuthPer: req.body.PKAuthPer,
-            Type: 'Grupo',
+            Type: 'AuthGps',
             Base: req.params.idGroup
         }).then(group => {
             return response.valid({

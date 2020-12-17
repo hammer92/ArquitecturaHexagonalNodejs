@@ -1,12 +1,12 @@
-// const { User } = require('../../loaders/sequelize');
-module.exports = {
-    async invoke (req, res) {
-        try {
+const { deleteCase } = require('../application')
+const { authGpsRepository } = require('./repositories')
+const {error, response} = require('./serializer')
 
-            res.json()
-        }
-        catch (e) {
-            // errorSerializer.json(e, res)
-        }
+module.exports = {
+    invoke (req, res) {
+        const handler = new deleteCase(authGpsRepository)
+        handler.execute(req.params.idGroup)
+            .then(data => response.valid({status:201, data}, res))
+            .catch(e => error.jsonError(e, res))
     }
 }

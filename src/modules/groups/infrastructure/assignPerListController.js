@@ -5,7 +5,7 @@ module.exports = {
     async invoke(req, res) {
         const handler = new listPerActCase(authPerActRepository)
         handler.execute({
-            Type: 'Grupo',
+            Type: 'AuthGps',
             Base: req.params.idGroup,
             query: req.query
         }).then(listed => {
