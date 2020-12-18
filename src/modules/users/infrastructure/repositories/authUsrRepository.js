@@ -17,7 +17,7 @@ module.exports = class {
         if(page) options["page"] = page
         if(paginate) options["paginate"] = paginate
         if(order) options["order"] = order
-        if(search) options['where']['Name'] = { [this.sequelize.Op.like]: `%${search}%` }
+        // if(search) options['where']['Name'] = { [this.sequelize.Op.like]: `%${search}%` }
 
         return  this.model.paginate(options);
     }
@@ -31,7 +31,6 @@ module.exports = class {
     }
 
     createAuthUsrTok(Entity) {
-        console.log("createAuthUsrTok", Entity)
         return this.token.create(Entity)
     }
 

@@ -30,7 +30,6 @@ const ResponseError = {
 
         const errors = {};
         for (const [segment, joiError] of err.details.entries()) {
-            // console.log(joiError.details)
             errors[segment] = joiError.details.map((detail) => {
                 return {message: detail.message, ...detail.context}
             })

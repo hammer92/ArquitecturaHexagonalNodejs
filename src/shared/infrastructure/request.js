@@ -7,7 +7,6 @@ const { authPerActRepository } = require('../../modules/permissions/infrastructu
 const { ResponseError, Response } = require('./serializer')
 module.exports = {
     check(PKAuthPer, req, res, next) {
-        console.log("check", req.User)
         if(!req.User) return ResponseError.jsonError(new notAuthorized(""), res)
         const permission = new checkPerActCase(authPerActRepository)
         permission.execute({PKAuthPer, idUser: req.User.id})
@@ -19,7 +18,6 @@ module.exports = {
             if (err) return ResponseError.jsonError(new notAuthorized(""), res)
             const permission = new checkAuthUsrTokCase(authUsrRepository)
             permission.execute(decoded).then((token)=> {
-                console.log("", token)
                     req.User = decoded;
                     next()
                 }).catch(e => ResponseError.jsonError(e, res))
