@@ -8,11 +8,8 @@ module.exports = {
             Type: 'AuthUsr',
             Base: req.params.idUser,
             query: req.query
-        }).then(listed => {
-            return response.valid({
-                status: 201,
-                data: listed
-            }, res)
+        }).then(data => {
+            return response.valid({status: 201, data}, res)
         }).catch(e => error.jsonError(e, res))
     }
 }

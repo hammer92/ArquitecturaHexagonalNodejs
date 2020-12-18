@@ -9,11 +9,8 @@ module.exports = {
             PKAuthPer: req.body.PKAuthPer,
             Type: 'AuthUsr',
             Base: req.params.idUser
-        }).then(group => {
-            return response.valid({
-                status: 201,
-                data: group
-            }, res)
+        }).then(data => {
+            return response.valid({status: 201, data}, res)
         }).catch(e => error.jsonError(e, res))
     }
 }

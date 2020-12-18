@@ -1,8 +1,9 @@
 
 module.exports = class {
 
-    constructor(AuthUsr, User, sequelize) {
+    constructor(AuthUsr, AuthUsrTok, sequelize) {
         this.model = AuthUsr
+        this.token = AuthUsrTok
         this.sequelize = sequelize
     }
 
@@ -27,6 +28,31 @@ module.exports = class {
 
     findById(Id) {
         return this.model.findByPk(Id);
+    }
+
+    createAuthUsrTok(Entity) {
+        console.log("createAuthUsrTok", Entity)
+        return this.token.create(Entity)
+    }
+
+    deleteAuthUsrTok(id, PKAuthUsr) {
+        return this.token.destroy({
+            where: { id, PKAuthUsr }
+        });
+    }
+
+    checkAuthUsrTok(id, PKAuthUsr){
+        return this.token.findOne({
+            where: { id, PKAuthUsr }
+        });
+    }
+
+    updateLastUsedAtAuthUsrTok(id, PKAuthUsr){
+        return this.token.update({
+            LastUsedAt: this.sequelize.fn('NOW')
+        },{
+            where: { id, PKAuthUsr }
+        });
     }
 
     findByUserName(UserName) {

@@ -10,7 +10,7 @@ module.exports = {
                 UserName: req.body.UserName,
                 PkAuthGps: req.body.PkAuthGps
             }
-        }).then(user => response.valid({status:201, data:user}, res))
+        }).then(data => response.valid({status:201, data}, res))
             .catch(e => error.jsonError(e, res))
     }
 }
