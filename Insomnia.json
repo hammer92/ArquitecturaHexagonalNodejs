@@ -1,18 +1,18 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2020-12-18T19:10:54.955Z",
+  "__export_date": "2020-12-21T22:25:26.396Z",
   "__export_source": "insomnia.desktop.app:v2020.5.2",
   "resources": [
     {
       "_id": "req_7f8b9e2239d0449c908d53f27c4d89f7",
       "parentId": "wrk_04ba4eb497ee47029606fb28fe1a6307",
-      "modified": 1608306465837,
+      "modified": 1608585026782,
       "created": 1608303008768,
       "url": "{{API}}/login",
       "name": "Login",
       "description": "",
-      "method": "GET",
+      "method": "POST",
       "body": {
         "mimeType": "application/json",
         "text": "{\n\t\"UserName\": \"jpinto\",\n  \"Password\": \"password\"\n}"
@@ -79,9 +79,9 @@
     {
       "_id": "req_b392fe59a2144de3b294a41234ccee49",
       "parentId": "fld_1ce54efaf32d4aa7a9c82fff4dd4a256",
-      "modified": 1608312195268,
+      "modified": 1608585638694,
       "created": 1608150414808,
-      "url": "{{API}}/groups/1",
+      "url": "{{API}}/groups/2",
       "name": "Eliminar",
       "description": "",
       "method": "DELETE",
@@ -121,15 +121,15 @@
     {
       "_id": "req_01acb478480e4c3d98ae60673fb92b90",
       "parentId": "fld_1ce54efaf32d4aa7a9c82fff4dd4a256",
-      "modified": 1608312656693,
+      "modified": 1608585631878,
       "created": 1608150387881,
-      "url": "{{API}}/groups/1",
+      "url": "{{API}}/groups/2",
       "name": "Editar",
       "description": "",
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"Name\": \"Nuevo\"\n}"
+        "text": "{\n\t\"name\": \"Nuevo\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -158,7 +158,7 @@
     {
       "_id": "req_05d70f38e6e44efe949eee15a9658dc6",
       "parentId": "fld_1ce54efaf32d4aa7a9c82fff4dd4a256",
-      "modified": 1608312174485,
+      "modified": 1608585458538,
       "created": 1608150373661,
       "url": "{{API}}/groups/",
       "name": "Crear",
@@ -166,7 +166,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"Name\": \"Sistemas\"\n}"
+        "text": "{\n\t\"Name\": \"Sistemas2\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -174,6 +174,11 @@
           "name": "Authorization",
           "value": "{{ _.Token }}",
           "id": "pair_ed11c1ed2864439c9a122e63230d6cd4"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_b22b9185144642249dc91cb9d82d1ba5"
         }
       ],
       "authentication": {},
@@ -190,7 +195,7 @@
     {
       "_id": "req_b9a40f02ea114eb89ed75ec5c92648af",
       "parentId": "fld_1ce54efaf32d4aa7a9c82fff4dd4a256",
-      "modified": 1608313972560,
+      "modified": 1608585659767,
       "created": 1608213352808,
       "url": "{{API}}/groups/1/permissions",
       "name": "Asignar Permisions",
@@ -198,7 +203,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"PKAuthPer\": \"permissions_user\"\n}"
+        "text": "{\n\t\"PKAuthPer\": \"list_group\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -289,9 +294,9 @@
     {
       "_id": "req_b3220d4c5a9840778a8ae79d6c5bfd8d",
       "parentId": "fld_80ee17952ee94dd09b5cc0a458f1607b",
-      "modified": 1608312033149,
+      "modified": 1608588032127,
       "created": 1608219147982,
-      "url": "{{API}}/permissions/1",
+      "url": "{{API}}/permissions/17",
       "name": "Eliminar",
       "description": "",
       "method": "DELETE",
@@ -331,15 +336,15 @@
     {
       "_id": "req_a0f2a30cd84c4fc3a8e8fb955985bc97",
       "parentId": "fld_80ee17952ee94dd09b5cc0a458f1607b",
-      "modified": 1608312063966,
+      "modified": 1608588025701,
       "created": 1608219147978,
-      "url": "{{API}}/permissions/1",
+      "url": "{{API}}/permissions/17",
       "name": "Editar",
       "description": "",
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"Name\": \"Crear Permisos\",\n  \"Description\": \"permite la creacion de perimosos editado\",\n  \"Action\": \"create_permission\"\n}"
+        "text": "{\n\t\"name\": \"Crear Permisos edot\",\n  \"description\": \"permite la creacion de perimosos editado\",\n  \"action\": \"create_permission0000\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -347,6 +352,11 @@
           "name": "Authorization",
           "value": "{{ _.Token }}",
           "id": "pair_cc69ac4d119e44b38f2ed0c7534fe1b4"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_c489906192f346ac8508c67b7da87f1a"
         }
       ],
       "authentication": {},
@@ -363,7 +373,7 @@
     {
       "_id": "req_0f2bae98835641788894969a18db0e7a",
       "parentId": "fld_80ee17952ee94dd09b5cc0a458f1607b",
-      "modified": 1608313361459,
+      "modified": 1608585870825,
       "created": 1608219147973,
       "url": "{{API}}/permissions/",
       "name": "Crear",
@@ -371,7 +381,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"Name\": \"Permiso\",\n  \"Description\": \"permite algo\",\n  \"Action\": \"permissions_user\"\n}"
+        "text": "{\n\t\"Name\": \"Permiso\",\n  \"Description\": \"permite algo\",\n  \"Action\": \"permissions_user000\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -430,9 +440,9 @@
     {
       "_id": "req_9476f50181f14235ae7c876b963a0be8",
       "parentId": "fld_870fc162a48445bc9963f81fb81af694",
-      "modified": 1608312211733,
+      "modified": 1608588080336,
       "created": 1608215694805,
-      "url": "{{API}}/users/5",
+      "url": "{{API}}/users/2",
       "name": "Eliminar",
       "description": "",
       "method": "DELETE",
@@ -472,15 +482,15 @@
     {
       "_id": "req_3407fb52ce6c4038ac037a934467af34",
       "parentId": "fld_870fc162a48445bc9963f81fb81af694",
-      "modified": 1608312491358,
+      "modified": 1608588074555,
       "created": 1608215694801,
-      "url": "{{API}}/users/1",
+      "url": "{{API}}/users/2",
       "name": "Editar",
       "description": "",
       "method": "PUT",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"UserName\": \"jpinto\",\n   \"PkAuthGps\": 1\n}"
+        "text": "{\n\t\"userName\": \"jpintoedit\",\n   \"pkAuthGps\": 1\n}"
       },
       "parameters": [],
       "headers": [
@@ -488,6 +498,11 @@
           "name": "Authorization",
           "value": "{{ _.Token }}",
           "id": "pair_cc69ac4d119e44b38f2ed0c7534fe1b4"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_3c87a44c91084853966dc2ad62f9ef35"
         }
       ],
       "authentication": {},
@@ -504,7 +519,7 @@
     {
       "_id": "req_b7f625b91b1344d28efc896ab37e94d3",
       "parentId": "fld_870fc162a48445bc9963f81fb81af694",
-      "modified": 1608312433469,
+      "modified": 1608584922527,
       "created": 1608215694797,
       "url": "{{API}}/users/",
       "name": "Crear",
@@ -512,7 +527,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"UserName\": \"jpinto0000\",\n   \"Password\": \"password\",\n   \"PkAuthGps\": 1\n}"
+        "text": "{\n\t\"UserName\": \"jpinto\",\n   \"Password\": \"password\",\n   \"PkAuthGps\": 1\n}"
       },
       "parameters": [],
       "headers": [
@@ -520,6 +535,11 @@
           "name": "Authorization",
           "value": "{{ _.Token }}",
           "id": "pair_ed11c1ed2864439c9a122e63230d6cd4"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_f4a8aefad9a3411da6f4e5fea8b9a58f"
         }
       ],
       "authentication": {},
@@ -536,15 +556,15 @@
     {
       "_id": "req_eb3eabae95cb414cad1ab7d3f7d05643",
       "parentId": "fld_870fc162a48445bc9963f81fb81af694",
-      "modified": 1608313824982,
+      "modified": 1608589085262,
       "created": 1608215694809,
-      "url": "{{API}}/users/1/permissions",
+      "url": "{{API}}/users/4/permissions",
       "name": "Asignar Permisions",
       "description": "",
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"PKAuthPer\": \"list_group\"\n}"
+        "text": "{\n\t\"PKAuthPer\": \"assign_group\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -635,12 +655,12 @@
     {
       "_id": "env_9376142ccbac3ea8e3ef637276c8e2cc26f4db23",
       "parentId": "wrk_04ba4eb497ee47029606fb28fe1a6307",
-      "modified": 1608313949489,
+      "modified": 1608585107866,
       "created": 1608150217583,
       "name": "Base Environment",
       "data": {
         "API": "http://localhost:3000/api",
-        "Token": "eyJhbGciOiJIUzI1NiJ9.eyJVVUlEIjoiNzAzMzZmZDAtOTFkZi00NzJjLWFhY2MtOGZhY2YzMGY4NGZmIiwiUGtBdXRoR3BzIjoxLCJpZCI6MX0.Ok5fcIZILJrG5NAg-_t-Fu97Qu_YrdsxwfWseGkx_4I"
+        "Token": "eyJhbGciOiJIUzI1NiJ9.eyJVVUlEIjoiZTMyMjI0ZGQtOGZkZC00MmQxLTliY2UtMTI2MjE2Y2RhM2RmIiwiaWQiOjN9.o6YXu08Nw5RjH7svNihFzBD_nI30ru2PlxgZYQvC2tg"
       },
       "dataPropertyOrder": {
         "&": [
