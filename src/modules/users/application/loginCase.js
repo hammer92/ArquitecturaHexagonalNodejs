@@ -6,8 +6,9 @@ const notFound = require('../domain/exceptions/notFound.js')
 const { compare } = require('../../../shared/utils/hash')
 module.exports = class {
 
-    constructor (authUsrRepository) {
+    constructor (authUsrRepository, authUsrTokRepository) {
         this.repository = authUsrRepository
+        this.repositoryToken = authUsrTokRepository
     }
 
     execute ({ UserName, Password }) {
@@ -25,7 +26,7 @@ module.exports = class {
                     }), process.env.JWT_SECRET)
 
                     const entity = new TokenEntity({ id:UUID, PKAuthUsr: find.id ,Origin:"General", Token })
-                    this.repository.createAuthUsrTok(entity).then( user => resolve(user)).catch(reject)
+                    this.repositoryToken.create(entity).then( user => resolve(user)).catch(reject)
 
                 }).catch(reject)
             }).catch(reject)
