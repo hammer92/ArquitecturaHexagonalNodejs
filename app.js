@@ -14,7 +14,6 @@ app.listen(config.port, () => {
       ################################################
     `);
 }).on('error', err => {
-    // Logger.error(err);
-    process.exit(1);
+    Logger.error(err);
+    // process.exit(1);
   });
-

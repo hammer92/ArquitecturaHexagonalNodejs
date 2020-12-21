@@ -18,12 +18,13 @@ module.exports = {
         username: process.env.CI_DB_USERNAME,
         password: process.env.CI_DB_PASSWORD,
         database: process.env.CI_DB_NAME,
-        host: '127.0.0.1',
-        port: 3306,
-        dialect: 'mysql',
+        host: process.env.CI_DB_HOST,
+        port: process.env.CI_DB_PORT,
+        dialect: process.env.CI_DB_DRIVER,
         dialectOptions: {
-            bigNumberStrings: true
-        }
+            bigNumberStrings: true,
+        },
+        logging: false,
     },
     production: {
         username: process.env.PROD_DB_USERNAME,
@@ -31,7 +32,8 @@ module.exports = {
         database: process.env.PROD_DB_NAME,
         host: process.env.PROD_DB_HOSTNAME,
         port: process.env.PROD_DB_PORT,
-        dialect: 'mysql',
+        dialect: process.env.PROD_DB_DRIVER,
+        logging: false,
         dialectOptions: {
             bigNumberStrings: true,
            /* ssl: {
