@@ -6,11 +6,11 @@ module.exports = class {
         this.repository = authUsrRepository
     }
 
-    execute ({ UserName, Password, PkAuthGps }) {
+    execute ({ userName, password, pkAuthGps }) {
         return  new Promise((resolve, reject) => {
-            this.repository.findByUserName(UserName).then((find)=>{
-                if(find !== null) return reject(new userNameExist(UserName))
-                const entity = new Entity({ UserName, Password, PkAuthGps })
+            this.repository.findByUserName(userName).then((find)=>{
+                if(find !== null) return reject(new userNameExist(userName))
+                const entity = new Entity({ userName, password, pkAuthGps })
                 this.repository.create(entity).then( user => resolve(user)).catch(reject)
             }).catch(reject)
         })

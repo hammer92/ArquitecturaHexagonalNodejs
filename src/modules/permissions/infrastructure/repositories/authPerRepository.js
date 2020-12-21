@@ -9,14 +9,14 @@ module.exports = class {
     list({ attributes, page, paginate, order, search }) {
 
         let options = {
-            attributes: attributes || ['id', 'Name', 'Action'],
+            attributes: attributes || ['id', 'name', 'action'],
             where: {}
         }
 
         if(page) options["page"] = page
         if(paginate) options["paginate"] = paginate
         if(order) options["order"] = order
-        if(search) options['where']['Name'] = { [this.sequelize.Op.like]: `%${search}%` }
+        if(search) options['where']['name'] = { [this.sequelize.Op.like]: `%${search}%` }
 
         return  this.model.paginate(options);
     }
@@ -29,19 +29,15 @@ module.exports = class {
         return this.model.findByPk(Id);
     }
 
-    update(Id, Data) {
+    update(id, Data) {
         return this.model.update(Data, {
-            where: {
-                id: Id
-            }
+            where: { id }
         });
     }
 
-    delete(Id) {
+    delete(id) {
         return this.model.destroy({
-            where: {
-                id: Id
-            }
+            where: { id }
         });
     }
 }

@@ -5,8 +5,8 @@ module.exports = class {
         this.repository = authGpsRepository
     }
 
-    execute ({ Name }) {
-        const groupEntity = new GroupEntity({ Name })
+    execute ({ name }) {
+        const groupEntity = new GroupEntity({ name })
         return this.repository.create(groupEntity)
     }
 

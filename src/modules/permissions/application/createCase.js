@@ -5,8 +5,8 @@ module.exports = class {
         this.repository = authPerRepository
     }
 
-    execute ({ Name, Description, Action }) {
-        const entity = new Entity({ Name, Description, Action })
+    execute ({ name, description, action }) {
+        const entity = new Entity({ name, description, action })
         return this.repository.create(entity)
     }
 

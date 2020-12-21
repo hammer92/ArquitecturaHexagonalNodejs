@@ -7,8 +7,8 @@ module.exports = {
         handler.execute({
             idUser: req.params.idUser,
             updateForm: {
-                UserName: req.body.UserName,
-                PkAuthGps: req.body.PkAuthGps
+                userName: req.body.UserName,
+                pkAuthGps: req.body.PkAuthGps
             }
         }).then(data => response.valid({status:201, data}, res))
             .catch(e => error.jsonError(e, res))

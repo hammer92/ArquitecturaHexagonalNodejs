@@ -12,11 +12,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
     }
-  };
+  }
   CommMod.init({
-    Name: DataTypes.STRING,
-    Icon: DataTypes.STRING,
-    State: DataTypes.BOOLEAN
+    name: DataTypes.STRING,
+    icon: DataTypes.STRING,
+    state: DataTypes.BOOLEAN
   }, {
     sequelize,
     tableName: 'CommMod',

@@ -6,9 +6,9 @@ module.exports = {
     invoke(req, res) {
         const handler = new assignPerActCase(authPerActRepository)
         handler.execute({
-            PKAuthPer: req.body.PKAuthPer,
-            Type: 'AuthUsr',
-            Base: req.params.idUser
+            pKAuthPer: req.body.PKAuthPer,
+            type: 'AuthUsr',
+            base: req.params.idUser
         }).then(data => {
             return response.valid({status: 201, data}, res)
         }).catch(e => error.jsonError(e, res))

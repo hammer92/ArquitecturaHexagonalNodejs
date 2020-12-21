@@ -8,13 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      Name: {
+      name: {
         type: Sequelize.STRING
       },
-      Description: {
+      description: {
         type: Sequelize.STRING
       },
-      Action: {
+      action: {
         type: Sequelize.STRING,
         unique: true,
       },

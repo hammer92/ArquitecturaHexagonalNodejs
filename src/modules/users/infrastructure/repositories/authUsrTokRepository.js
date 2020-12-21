@@ -11,23 +11,23 @@ module.exports = class {
         return this.model.create(Entity)
     }
 
-    delete(id, PKAuthUsr) {
+    delete(id, pKAuthUsr) {
         return this.model.destroy({
-            where: { id, PKAuthUsr }
+            where: { id, pKAuthUsr }
         });
     }
 
-    check(id, PKAuthUsr){
+    check(id, pKAuthUsr){
         return this.model.findOne({
-            where: { id, PKAuthUsr }
+            where: { id, pKAuthUsr }
         });
     }
 
-    updateLastUsedAt(id, PKAuthUsr){
+    updateLastUsedAt(id, pKAuthUsr){
         return this.model.update({
-            LastUsedAt: this.sequelize.fn('NOW')
+            lastUsedAt: this.sequelize.fn('NOW')
         },{
-            where: { id, PKAuthUsr }
+            where: { id, pKAuthUsr }
         });
     }
 }

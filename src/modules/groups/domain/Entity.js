@@ -1,8 +1,8 @@
 module.exports = class {
 
-    constructor ({ Id = null,  Name, State }) {
-        this.Id = Id
-        this.State = State || true
-        this.Name = Name
+    constructor ({ id = null,  name, state }) {
+        this.id = id
+        this.state = state || true
+        this.name = name
     }
 }

@@ -4,8 +4,8 @@ module.exports = class {
         this.Repository = authPerActRepository
     }
 
-    async execute ({ Base, Type, query }) {
-        return this.Repository.paginate(Base, Type, query)
+    async execute ({ base, type, query }) {
+        return this.Repository.paginate(base, type, query)
     }
 
 }

@@ -1,9 +1,9 @@
 module.exports = class {
 
-    constructor({id, PKAuthUsr, Origin, Token}) {
+    constructor({id, pKAuthUsr, origin, token}) {
         this.id = id
-        this.PKAuthUsr = PKAuthUsr
-        this.Origin = Origin
-        this.Token = Token
+        this.pKAuthUsr = pKAuthUsr
+        this.origin = origin
+        this.token = token
     }
 }

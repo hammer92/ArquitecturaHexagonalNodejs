@@ -1,21 +1,26 @@
 module.exports = class {
 
-    constructor(authPerAct, AuthUsr, sequelize) {
+    constructor(authPerAct, AuthUsr, AuthGps, sequelize) {
         this.model = authPerAct
         this.user = AuthUsr
+        this.group = AuthGps
         this.sequelize = sequelize
     }
 
-    paginate(Base, Type, query) {
+    existType(type, id){
+        if(type === "AuthUsr") return this.user.findByPk(id)
+        if(type === "AuthGps") return this.group.findByPk(id)
+    }
+
+    paginate(base, type, query) {
         let options = {
-            attributes: query.attributes || ['id', 'PKAuthPer', 'State'],
-            where: {Base, Type}
+            attributes: query.attributes || ['id', 'pKAuthPer', 'state'],
+            where: {base, type}
         }
 
         if (query.page) options["page"] = query.page
         if (query.paginate) options["paginate"] = query.paginate
         if (query.order) options["order"] = query.order
-        // if(query.search) options['where']['Name'] = { [this.sequelize.Op.like]: `%${query.search}%` }
 
         return this.model.paginate(options);
 
@@ -32,7 +37,7 @@ module.exports = class {
             .then(function (obj) {
                 // update
                 if (obj) {
-                    Entity.State = !obj.State
+                    Entity.state = !obj.state
                     return obj.update(Entity);
                 }
                 // insert
@@ -40,22 +45,22 @@ module.exports = class {
             })
     }
 
-    check({PKAuthPer, idUser}) {
+    check({pKAuthPer, idUser}) {
         const $this = this
         return  new Promise((resolve, reject) => {
-            $this.user.findByPk(idUser).then((User) => {
-                if(User.Admin) return resolve({ State:true })
+            $this.user.findByPk(idUser).then(({ id, admin, pkAuthGps }) => {
+                if(admin) return resolve({ state:true })
                 $this.model.findOne({
-                    attributes: ['State', 'Type'],
+                    attributes: ['state', 'type'],
                     where: {
-                        PKAuthPer,
+                        pKAuthPer,
                         [this.sequelize.Op.or]: [
-                            {Type: "AuthUsr", Base: User.id},
-                            {Type: "AuthGps", Base: User.PkAuthGps},
+                            {type: "AuthUsr", base: id},
+                            {type: "AuthGps", base: pkAuthGps},
                         ]
                     },
                     order: [
-                        ['Type', 'DESC']
+                        ['type', 'DESC']
                     ]
                 }).then(resolve).catch(reject)
             }).catch(reject)

@@ -14,10 +14,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   AuthUsrTok.init({
-    Origin: DataTypes.STRING,
-    PKAuthUsr: DataTypes.INTEGER,
-    Token: DataTypes.STRING,
-    LastUsedAt: DataTypes.STRING
+    origin: DataTypes.STRING,
+    pKAuthUsr: DataTypes.INTEGER,
+    token: DataTypes.STRING,
+    lastUsedAt: DataTypes.STRING
   }, {
     sequelize,
     tableName: 'AuthUsrTok',

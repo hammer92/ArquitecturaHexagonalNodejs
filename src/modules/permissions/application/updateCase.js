@@ -30,10 +30,10 @@ module.exports = class {
 
     buildEntityFromDB (itemDB) {
         return new entity({
-            Id: itemDB.Id,
-            Name: itemDB.Name,
-            Description: itemDB.Description,
-            Action: itemDB.Action,
+            id: itemDB.id,
+            name: itemDB.name,
+            description: itemDB.description,
+            action: itemDB.action,
         })
     }
 }

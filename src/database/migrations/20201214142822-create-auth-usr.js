@@ -8,33 +8,33 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      UserName: {
+      userName: {
         type: Sequelize.STRING,
         unique: true
       },
-      Password: {
+      password: {
         type: Sequelize.STRING
       },
-      PkAuthGps: {
+      pkAuthGps: {
         type: Sequelize.INTEGER,
         references: { model: 'AuthGps', key: 'id' }
       },
-      State: {
+      state: {
         type: Sequelize.BOOLEAN,
         defaultValue:true
       },
-      Config: {
+      config: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      Admin: {
+      admin: {
         type: Sequelize.BOOLEAN,
         defaultValue: false
       },
-      Type: {
+      type: {
         type: Sequelize.STRING
       },
-      Base: {
+      base: {
         type: Sequelize.INTEGER
       },
       createdAt: {

@@ -29,10 +29,11 @@ module.exports = class {
 
     buildEntityFromDB (itemDB) {
         return new entity({
-            Id: itemDB.Id,
-            Name: itemDB.Name,
-            Description: itemDB.Description,
-            Action: itemDB.Action,
+            id: itemDB.id,
+            userName: itemDB.userName,
+            pkAuthGps: itemDB.pkAuthGps,
+            type: itemDB.type,
+            base: itemDB.base,
         })
     }
 }

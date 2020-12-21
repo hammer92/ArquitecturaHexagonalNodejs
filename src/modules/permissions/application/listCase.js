@@ -5,7 +5,7 @@ module.exports = class {
     }
 
     async execute (query) {
-        return  this.Repository.list(query)
+        return this.Repository.list(query)
     }
 
 }

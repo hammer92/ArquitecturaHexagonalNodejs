@@ -6,10 +6,10 @@ const checkPerActCase = require('../../modules/permissions/application/checkPerA
 const { authPerActRepository } = require('../../modules/permissions/infrastructure/repositories')
 const { ResponseError } = require('./serializer')
 module.exports = {
-    check(PKAuthPer, req, res, next) {
+    check(pKAuthPer, req, res, next) {
         if(!req.User) return ResponseError.jsonError(new notAuthorized(""), res)
         const permission = new checkPerActCase(authPerActRepository)
-        permission.execute({PKAuthPer, idUser: req.User.id})
+        permission.execute({pKAuthPer, idUser: req.User.id})
             .then(()=>next()).catch(e => ResponseError.jsonError(e, res))
     },
     auth(req, res, next) {

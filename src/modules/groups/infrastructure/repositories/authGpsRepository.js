@@ -7,17 +7,17 @@ module.exports = class {
         this.sequelize = sequelize
     }
 
-    list({page, paginate, order, search}) {
+    list({attributes, page, paginate, order, search}) {
 
         let options = {
-            attributes: ['id', 'Name'],
+            attributes: attributes || ['id', 'name'],
             where: {}
         }
 
         if(page) options["page"] = page
         if(paginate) options["paginate"] = paginate
         if(order) options["order"] = order
-        if(search) options['where']['Name'] = { [this.sequelize.Op.like]: `%${search}%` }
+        if(search) options['where']['name'] = { [this.sequelize.Op.like]: `%${search}%` }
 
         return  this.group.paginate(options);
     }
@@ -26,23 +26,19 @@ module.exports = class {
         return this.group.create(Entity);
     }
 
-    findById(Id) {
-        return this.group.findByPk(Id);
+    findById(id) {
+        return this.group.findByPk(id);
     }
 
-    update(Id, Data) {
+    update(id, Data) {
         return this.group.update(Data, {
-            where: {
-                id: Id
-            }
+            where: { id }
         });
     }
 
-    delete(Id) {
+    delete(id) {
         return this.group.destroy({
-            where: {
-                id: Id
-            }
+            where: { id }
         });
     }
 }

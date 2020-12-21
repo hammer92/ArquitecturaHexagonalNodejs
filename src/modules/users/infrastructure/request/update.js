@@ -5,7 +5,7 @@ module.exports = celebrate({
         idUser: Joi.number().required()
     }),
     [Segments.BODY]: Joi.object({
-        UserName: Joi.string().required(),
-        PkAuthGps: Joi.number().required()
+        userName: Joi.string().required(),
+        pkAuthGps: Joi.number().required()
     }),
 })

@@ -2,8 +2,8 @@ const { celebrate, Joi, Segments  } = require('celebrate')
 
 module.exports = celebrate({
     [Segments.BODY]: Joi.object({
-        UserName: Joi.string().required(),
-        Password: Joi.string().required(),
-        PkAuthGps: Joi.number().required()
+        userName: Joi.string().required(),
+        password: Joi.string().required(),
+        pkAuthGps: Joi.number().required()
     }),
 })

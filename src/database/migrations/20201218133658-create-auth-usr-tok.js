@@ -8,17 +8,17 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      PKAuthUsr: {
+      pKAuthUsr: {
         type: Sequelize.INTEGER,
         references: { model: 'AuthUsr', key: 'id' }
       },
-      Origin: {
+      origin: {
         type: Sequelize.STRING
       },
-      Token: {
+      token: {
         type: Sequelize.STRING
       },
-      LastUsedAt: {
+      lastUsedAt: {
         type: Sequelize.DATE
       },
       createdAt: {

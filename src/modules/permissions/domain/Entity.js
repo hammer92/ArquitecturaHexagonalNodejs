@@ -1,9 +1,9 @@
 module.exports = class {
 
-    constructor ({ Id = null,  Name, Description, Action }) {
-        this.Id = Id
-        this.Name = Name
-        this.Description = Description
-        this.Action = Action
+    constructor ({ id = null,  name, description, action }) {
+        this.id = id
+        this.name = name
+        this.description = description
+        this.action = action
     }
 }

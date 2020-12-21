@@ -6,9 +6,9 @@ module.exports = {
     invoke(req, res) {
         const handler = new assignPerActCase(authPerActRepository)
         handler.execute({
-            PKAuthPer: req.body.PKAuthPer,
-            Type: 'AuthGps',
-            Base: req.params.idGroup
+            pKAuthPer: req.body.pKAuthPer,
+            type: 'AuthGps',
+            base: req.params.idGroup
         }).then(group => {
             return response.valid({
                 status: 201,

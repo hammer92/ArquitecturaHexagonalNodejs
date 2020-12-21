@@ -5,10 +5,10 @@ module.exports = class {
         this.repository = authPerActRepository
     }
 
-    execute ({ PKAuthPer, idUser }) {
+    execute ({ pKAuthPer, idUser }) {
         return  new Promise((resolve, reject) => {
-            this.repository.check({PKAuthPer, idUser}).then((check)=> {
-                if (check === null || !check.State) return reject(new notPermission(''))
+            this.repository.check({pKAuthPer, idUser}).then((check)=> {
+                if (check === null || !check.state) return reject(new notPermission(''))
                 return resolve(true)
             }).catch(reject)
         });

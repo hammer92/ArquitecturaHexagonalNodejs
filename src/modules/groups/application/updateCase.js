@@ -30,8 +30,8 @@ module.exports = class {
 
     buildEntityFromDB (itemDB) {
         return new GroupEntity({
-            Id: itemDB.Id,
-            Name: itemDB.Name,
+            id: itemDB.id,
+            name: itemDB.name,
         })
     }
 }

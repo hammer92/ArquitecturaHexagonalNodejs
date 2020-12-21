@@ -2,8 +2,8 @@ const { celebrate, Joi, Segments  } = require('celebrate')
 
 module.exports = celebrate({
     [Segments.BODY]: Joi.object({
-        Name: Joi.string().required(),
-        Description: Joi.string().required(),
-        Action: Joi.string().required(),
+        name: Joi.string().required(),
+        description: Joi.string().required(),
+        action: Joi.string().required(),
     }),
 })

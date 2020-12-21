@@ -8,18 +8,18 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      PKAuthPer: {
+      pKAuthPer: {
         type: Sequelize.STRING,
-        references: { model: 'AuthPer', key: 'Action' }
+        references: { model: 'AuthPer', key: 'action' }
       },
-      State: {
+      state: {
         type: Sequelize.BOOLEAN,
         defaultValue:true
       },
-      Type: {
+      type: {
         type: Sequelize.STRING
       },
-      Base: {
+      base: {
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -35,7 +35,7 @@ module.exports = {
     },{
       uniqueKeys: {
         actions_unique: {
-          fields: ['PKAuthPer', 'Type', 'Base']
+          fields: ['pKAuthPer', 'type', 'base']
         }
       }
     });

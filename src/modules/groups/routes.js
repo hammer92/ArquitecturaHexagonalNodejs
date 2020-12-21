@@ -9,8 +9,8 @@ module.exports = (router) => {
         controller.listController.invoke)
 
     router.post('/groups',
-        request.auth,
-        (req, res, next) => request.check(permissions.create, req, res, next),
+        // request.auth,
+        // (req, res, next) => request.check(permissions.create, req, res, next),
         request.create,
         controller.createController.invoke)
 

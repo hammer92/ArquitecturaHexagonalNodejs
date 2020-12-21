@@ -5,6 +5,6 @@ module.exports = celebrate({
         idGroup: Joi.number().required()
     }),
     [Segments.BODY]: Joi.object({
-        Name: Joi.string().required(),
+        name: Joi.string().required(),
     }),
 })

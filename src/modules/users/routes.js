@@ -2,7 +2,7 @@ const request = require('./infrastructure/request')
 const controller = require('./infrastructure')
 const permissions = require("./permissions")
 module.exports = (router) => {
-    router.get('/login',
+    router.post('/login',
         controller.loginController.invoke)
 
     router.post('/logout',

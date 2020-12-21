@@ -14,12 +14,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association her
-      models['AuthGps'].hasMany(models['AuthUsr'],{foreignKey:'PkAuthGps'})
+      models['AuthGps'].hasMany(models['AuthUsr'],{foreignKey:'pkAuthGps'})
     }
   }
   AuthGps.init({
-    Name: DataTypes.STRING,
-    State: DataTypes.BOOLEAN
+    name: DataTypes.STRING,
+    state: DataTypes.BOOLEAN
   }, {
     sequelize,
     tableName: 'AuthGps',

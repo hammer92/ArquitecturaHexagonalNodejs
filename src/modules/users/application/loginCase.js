@@ -11,21 +11,21 @@ module.exports = class {
         this.repositoryToken = authUsrTokRepository
     }
 
-    execute ({ UserName, Password }) {
+    execute ({ userName, password }) {
         return  new Promise((resolve, reject) => {
-            this.repository.findByUserName(UserName).then((find)=>{
-                if(find === null || !find.State) return reject(new notFound(UserName))
+            this.repository.findByUserName(userName).then((find)=>{
+                if(find === null || !find.state) return reject(new notFound(userName))
 
-                compare(Password, find.Password).then(valid =>{
-                    if(!valid) return reject(new notAuthorized(UserName))
+                compare(password, find.password).then(valid =>{
+                    if(!valid) return reject(new notAuthorized(userName))
                     const UUID = uuid.v4()
-                    const Token = jwt.sign(JSON.stringify({
+                    const token = jwt.sign(JSON.stringify({
                         UUID,
-                        PkAuthGps: find.PkAuthGps,
+                        pkAuthGps: find.pkAuthGps,
                         id: find.id
                     }), process.env.JWT_SECRET)
 
-                    const entity = new TokenEntity({ id:UUID, PKAuthUsr: find.id ,Origin:"General", Token })
+                    const entity = new TokenEntity({ id:UUID, pKAuthUsr: find.id ,origin:"General", token })
                     this.repositoryToken.create(entity).then( user => resolve(user)).catch(reject)
 
                 }).catch(reject)

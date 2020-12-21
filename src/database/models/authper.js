@@ -16,9 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   AuthPer.init({
-    Name: DataTypes.STRING,
-    Description: DataTypes.STRING,
-    Action: DataTypes.STRING
+    name: DataTypes.STRING,
+    description: DataTypes.STRING,
+    action: DataTypes.STRING
   }, {
     sequelize,
     tableName: 'AuthPer',

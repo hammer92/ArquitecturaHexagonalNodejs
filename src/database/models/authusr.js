@@ -15,14 +15,14 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   AuthUsr.init({
-    UserName: DataTypes.STRING,
-    Password: DataTypes.STRING,
-    PkAuthGps: DataTypes.INTEGER,
-    State: DataTypes.BOOLEAN,
-    Config: DataTypes.BOOLEAN,
-    Admin: DataTypes.BOOLEAN,
-    Type: DataTypes.STRING,
-    Base: DataTypes.INTEGER
+    userName: DataTypes.STRING,
+    password: DataTypes.STRING,
+    pkAuthGps: DataTypes.INTEGER,
+    state: DataTypes.BOOLEAN,
+    config: DataTypes.BOOLEAN,
+    admin: DataTypes.BOOLEAN,
+    type: DataTypes.STRING,
+    base: DataTypes.INTEGER
   }, {
     sequelize,
     tableName: 'AuthUsr',

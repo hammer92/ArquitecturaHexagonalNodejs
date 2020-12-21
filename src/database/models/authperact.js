@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   AuthPerAct.init({
-    PKAuthPer: DataTypes.INTEGER,
-    State: DataTypes.BOOLEAN,
-    Type: DataTypes.STRING,
-    Base: DataTypes.INTEGER
+    pKAuthPer: DataTypes.INTEGER,
+    state: DataTypes.BOOLEAN,
+    type: DataTypes.STRING,
+    base: DataTypes.INTEGER
   }, {
     sequelize,
     tableName: 'AuthPerAct',
