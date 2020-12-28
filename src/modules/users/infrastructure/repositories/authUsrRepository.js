@@ -1,9 +1,8 @@
 
 module.exports = class {
 
-    constructor(AuthUsr, sequelize) {
+    constructor({AuthUsr}) {
         this.model = AuthUsr
-        this.sequelize = sequelize
     }
 
     list({ attributes, page, paginate, order, search }) {

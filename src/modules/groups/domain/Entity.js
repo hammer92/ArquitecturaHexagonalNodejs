@@ -1,5 +1,5 @@
-const Entry = require('../../../shared/domain/entry')
-module.exports = class GroupEntry extends Entry  {
+const { domain } = require('../../../shared')
+module.exports = class extends domain.entry {
 
     constructor ({ id = null,  name, state}) {
         super();

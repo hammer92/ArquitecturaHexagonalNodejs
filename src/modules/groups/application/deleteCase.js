@@ -7,7 +7,6 @@ module.exports = class {
     }
 
     execute (idGroup) {
-
         return  new Promise((resolve, reject) => {
             this.repository.findById(idGroup).then((find)=>{
                 if(find === null) return reject(new notFound(idGroup))

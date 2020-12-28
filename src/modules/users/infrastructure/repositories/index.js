@@ -1,10 +1,10 @@
 const AuthUsrRepository = require('./authUsrRepository')
 const AuthUsrTokRepository = require('./authUsrTokRepository')
-const {authPerActRepository} = require('../../../permissions/infrastructure/repositories')
-const { AuthUsr, AuthUsrTok, Sequelize } = require('../../../../loaders/sequelize');
+const { repositories } = require('../../../permissions')
+const sequelize = require('../../../../loaders/sequelize');
 
 module.exports = {
-    authUsrRepository: new AuthUsrRepository(AuthUsr, Sequelize),
-    authUsrTokRepository: new AuthUsrTokRepository(AuthUsrTok, Sequelize),
-    authPerActRepository
+    authUsrRepository: new AuthUsrRepository(sequelize),
+    authUsrTokRepository: new AuthUsrTokRepository(sequelize),
+    authPerActRepository: repositories.authPerActRepository
 }

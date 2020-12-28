@@ -26,7 +26,7 @@ module.exports = {
             }
         }
 
-        console.log(save.length, "Nuevos permisos")
+        console.info(save.length, "Nuevos permisos")
 
         if(save.length > 0) {
             await queryInterface.bulkInsert('AuthPer', save, {});

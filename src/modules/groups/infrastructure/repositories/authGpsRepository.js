@@ -1,45 +1,9 @@
+const { infrastructure } = require("../../../../shared")
 
-module.exports = class {
+module.exports = class authGpsRepository extends infrastructure.repositories{
 
-    constructor(Group, User, sequelize) {
-        this.group = Group
-        this.user = User
-        this.sequelize = sequelize
-    }
-
-    list({attributes, page, paginate, order, search}) {
-
-        let options = {
-            attributes: attributes || ['id', 'name'],
-            where: {},
-            include:['users']
-        }
-
-        if(page) options["page"] = page
-        if(paginate) options["paginate"] = paginate
-        if(order) options["order"] = order
-        if(search) options['where']['name'] = { [this.sequelize.Op.like]: `%${search}%` }
-
-        return  this.group.paginate(options);
-    }
-
-    create(Entity) {
-        return this.group.create(Entity);
-    }
-
-    findById(id) {
-        return this.group.findByPk(id);
-    }
-
-    update(id, Data) {
-        return this.group.update(Data, {
-            where: { id }
-        });
-    }
-
-    delete(id) {
-        return this.group.destroy({
-            where: { id }
-        });
+    constructor({AuthGps}) {
+        super();
+        this.model = AuthGps
     }
 }

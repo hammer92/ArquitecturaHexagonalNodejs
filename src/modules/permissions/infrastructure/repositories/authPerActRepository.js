@@ -1,6 +1,6 @@
 module.exports = class {
 
-    constructor(authPerAct, AuthUsr, AuthGps, sequelize) {
+    constructor({authPerAct, AuthUsr, AuthGps, sequelize}) {
         this.model = authPerAct
         this.user = AuthUsr
         this.group = AuthGps

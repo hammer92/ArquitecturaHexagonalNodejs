@@ -1,9 +1,9 @@
 
 module.exports = class {
 
-    constructor( AuthUsrTok, sequelize) {
+    constructor({AuthUsrTok, Sequelize}) {
         this.model = AuthUsrTok
-        this.sequelize = sequelize
+        this.sequelize = Sequelize
     }
 
 

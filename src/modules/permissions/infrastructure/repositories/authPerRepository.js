@@ -1,7 +1,7 @@
 
 module.exports = class {
 
-    constructor(authPer, User, sequelize) {
+    constructor({authPer, User, sequelize}) {
         this.model = authPer
         this.sequelize = sequelize
     }
