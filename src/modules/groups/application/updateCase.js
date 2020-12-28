@@ -6,8 +6,10 @@ module.exports = class {
         this.repository = authGpsRepository
     }
 
-    execute ({ idGroup, updateForm }) {
+    execute ({ params, body, User }) {
         return  new Promise((resolve, reject) => {
+            const idGroup = params.idGroup
+            const updateForm = body
             this.repository.findById(idGroup).then((find)=>{
 
                 if(find === null) return reject(new notFound(idGroup))
@@ -17,6 +19,8 @@ module.exports = class {
                 for (const field in updateForm) {
                     groupEntity[field] = updateForm[field]
                 }
+
+                groupEntity.setUpdatedBy(User)
 
                 this.repository.update(idGroup, groupEntity).then((update) =>{
                     if(update){

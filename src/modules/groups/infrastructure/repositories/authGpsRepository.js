@@ -11,7 +11,8 @@ module.exports = class {
 
         let options = {
             attributes: attributes || ['id', 'name'],
-            where: {}
+            where: {},
+            include:['users']
         }
 
         if(page) options["page"] = page

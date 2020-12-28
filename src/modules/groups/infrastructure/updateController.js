@@ -5,10 +5,7 @@ module.exports = {
     invoke(req, res) {
 
         const handler = new updateCase(authGpsRepository)
-        handler.execute({
-            idGroup: req.params.idGroup,
-            updateForm: req.body
-        }).then((group) => response.valid({status:201, data:group}, res))
+        handler.execute(req).then((group) => response.valid({status:201, data:group}, res))
             .catch((e) => error.jsonError(e, res))
     }
 }

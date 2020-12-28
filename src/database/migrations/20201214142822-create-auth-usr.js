@@ -1,6 +1,8 @@
 'use strict';
+const genericAttributes = require('../genericAttributes')
 module.exports = {
   up: async (queryInterface, Sequelize) => {
+    const attribute = genericAttributes(Sequelize)
     await queryInterface.createTable('AuthUsr', {
       id: {
         allowNull: false,
@@ -32,7 +34,8 @@ module.exports = {
         defaultValue: false
       },
       type: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: 'AuthUsr'
       },
       base: {
         type: Sequelize.INTEGER
@@ -46,7 +49,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('NOW()')
-      }
+      }, ...attribute
     });
   },
   down: async (queryInterface, Sequelize) => {

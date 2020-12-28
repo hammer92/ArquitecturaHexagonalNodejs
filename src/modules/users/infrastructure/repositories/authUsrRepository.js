@@ -10,7 +10,8 @@ module.exports = class {
 
         let options = {
             attributes: attributes || ['id', 'userName', 'pkAuthGps', 'state', 'config', 'admin', 'type', 'base'],
-            where: {}
+            where: {},
+            include:['']
         }
 
         if(page) options["page"] = page

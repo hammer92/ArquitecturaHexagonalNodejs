@@ -22,8 +22,12 @@ module.exports = class {
                     const token = jwt.sign(JSON.stringify({
                         UUID,
                         pkAuthGps: find.pkAuthGps,
-                        id: find.id
+                        id: find.id,
+                        type: find.type,
+                        base: find.base
                     }), process.env.JWT_SECRET)
+
+                    global.User = find;
 
                     const entity = new TokenEntity({ id:UUID, pKAuthUsr: find.id ,origin:"General", token })
                     this.repositoryToken.create(entity).then( user => resolve(user)).catch(reject)

@@ -2,9 +2,12 @@
 const {
   Model
 } = require('sequelize');
+const Attributes = require('../modelsAttributes')
 const sequelizePaginate = require('sequelize-paginate')
 
 module.exports = (sequelize, DataTypes) => {
+
+  const attributes = Attributes(DataTypes)
 
   class AuthGps extends Model {
     /**
@@ -14,12 +17,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association her
-      models['AuthGps'].hasMany(models['AuthUsr'],{foreignKey:'pkAuthGps'})
+      models['AuthGps'].hasMany(models['AuthUsr'],{as:'users',  foreignKey:'pkAuthGps'})
     }
   }
   AuthGps.init({
     name: DataTypes.STRING,
-    state: DataTypes.BOOLEAN
+    state: DataTypes.BOOLEAN,
+    ...attributes
   }, {
     sequelize,
     tableName: 'AuthGps',

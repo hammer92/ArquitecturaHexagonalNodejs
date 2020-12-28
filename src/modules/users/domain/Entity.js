@@ -6,7 +6,7 @@ module.exports = class {
         this.userName = userName
         if(password) this.password = getHash(password)
         this.pkAuthGps = pkAuthGps
-        this.type = type || "General"
+        this.type = type || 'AuthUsr'
         this.base = base
     }
 }

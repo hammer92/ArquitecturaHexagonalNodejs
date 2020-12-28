@@ -9,15 +9,14 @@ module.exports = (router) => {
         controller.listController.invoke)
 
     router.post('/groups',
-        // request.auth,
-        // (req, res, next) => request.check(permissions.create, req, res, next),
+        request.auth,
+        (req, res, next) => request.check(permissions.create, req, res, next),
         request.create,
         controller.createController.invoke)
 
     router.put('/groups/:idGroup',
         request.auth,
         (req, res, next) => request.check(permissions.update, req, res, next),
-        request.pk,
         request.update,
         controller.updateController.invoke)
 

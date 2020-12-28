@@ -17,7 +17,7 @@ module.exports = {
         jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
             if (err) return ResponseError.jsonError(new notAuthorized(""), res)
             const permission = new checkAuthUsrTokCase(authUsrTokRepository)
-            permission.execute(decoded).then(()=> {
+            permission.execute(decoded).then((data)=> {
                     req.User = decoded;
                     next()
                 }).catch(e => ResponseError.jsonError(e, res))
