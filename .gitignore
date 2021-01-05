@@ -1,0 +1,15 @@
+*.log
+node_modules
+.env
+npm-debug.*
+.DS_Store
+.vscode
+.idea
+yarn-error.log
+debug.log
+coverage
+
+postgres-data
+redis-data
+
+package-lock.json
