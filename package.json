@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node cluster.js",
-    "start:dev": "cross-env NODE_PATH=. nodemon index.js",
-    "lint:staged": "lint-staged"
+    "start": "cross-env NODE_PATH=. node cluster.js",
+    "start:dev": "cross-env NODE_PATH=. nodemon index.js"
   },
   "author": "",
   "license": "ISC",

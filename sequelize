@@ -1,0 +1,5 @@
+#!/bin/bash
+
+echo sequelize --options-path src/modules/"$1"/database/.sequelizerc "$@"
+
+

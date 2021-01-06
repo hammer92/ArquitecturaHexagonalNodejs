@@ -8,7 +8,7 @@ require('dotenv').config({ path: dotEnvPath })
 
 module.exports = {
   development: {
-    username: process.env.DB_USER || 'postgress',
+    username: process.env.DB_USER || 'postgres',
     password: process.env.DB_PASS || 'password',
     database: process.env.DB_DATABASE || 'postgres',
     host: process.env.DB_HOST || 'localhost',
@@ -19,9 +19,16 @@ module.exports = {
     }
   },
   test: {
-    'url': process.env.DATABASE_URL_TEST,
-    'dialect': 'postgres',
-    logging: false // remove logs
+    username: process.env.CI_DB_USER || 'postgres',
+    password: process.env.CI_DB_PASS || 'password',
+    database: process.env.CI_DB_DATABASE || 'postgres_test',
+    host: process.env.CI_DB_HOST || 'localhost',
+    dialect: process.env.CI_DB_DRIVER || 'postgres',
+    port: process.env.CI_DB_PORT || 5432,
+    logging: false,
+    dialectOptions: {
+      bigNumberStrings: true
+    }
   },
   staging: {
     'url': process.env.DATABASE_URL_STAGING,
