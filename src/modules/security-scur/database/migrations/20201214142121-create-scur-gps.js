@@ -1,8 +1,8 @@
 'use strict';
-const genericAttributes = require('../genericAttributes')
+// const genericAttributes = require('../genericAttributes')
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const attribute = genericAttributes(Sequelize)
+    // const attribute = genericAttributes(Sequelize)
     await queryInterface.createTable('ScurGps', {
       id: {
         allowNull: false,
@@ -26,7 +26,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('NOW()')
-      }, ...attribute
+       }, //...attribute
     });
 
     //funcion para creat procedimiento de logs
