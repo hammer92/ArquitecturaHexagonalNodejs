@@ -16,7 +16,7 @@ const updatedBy = (Sequelize)=>{
     },
     updatedByBase: {
       type: Sequelize.INTEGER
-    },
+    }
   }
 }
 
@@ -32,6 +32,9 @@ const timestamps = (Sequelize)=>{
       type: Sequelize.DATE,
       defaultValue: Sequelize.literal('NOW()')
     },
+    deletedAt: {
+      type: Sequelize.DATE
+    }
   }
 }
 module.exports={

@@ -28,6 +28,7 @@ module.exports = (sequelize, DataTypes, modelAttributes) => {
 
   }, {
     sequelize,
+    paranoid: true,
     tableName: 'ScurUsr',
     modelName: 'ScurUsr',
   });

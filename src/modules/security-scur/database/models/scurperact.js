@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes, modelAttributes) => {
     ...modelAttributes.updatedBy(DataTypes)
   }, {
     sequelize,
+    paranoid: true,
     tableName: 'ScurPerAct',
     modelName: 'ScurPerAct',
   });

@@ -1,15 +1,9 @@
-module.exports = ({ repository: { security: { GpsRepository } }}, {}) => {
+module.exports = ({ repository: { security: { GpsRepository } } }, {}) => {
   // code for change state the item
   const remove = ({ id }) => {
     return Promise
       .resolve()
-      .then(() =>
-        GpsRepository.update({
-          state: false
-        }, {
-          where: { id }
-        })
-      )
+      .then(() => GpsRepository.destroy({ where: { id } }))
       .catch((error) => {
         throw new Error(error)
       })
