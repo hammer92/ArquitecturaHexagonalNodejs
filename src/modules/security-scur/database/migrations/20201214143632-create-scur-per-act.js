@@ -1,10 +1,8 @@
 'use strict';
-const genericAttributes = require('../genericAttributes')
+const generic = require('src/container/database/migrationsAttributes')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    const attribute = genericAttributes(Sequelize)
-
     await queryInterface.createTable('ScurPerAct', {
       id: {
         allowNull: false,
@@ -26,16 +24,9 @@ module.exports = {
       base: {
         type: Sequelize.INTEGER
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('NOW()')
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('NOW()')
-      }, ...attribute
+      ...generic.timestamps(Sequelize),
+      ...generic.createdBy(Sequelize),
+      ...generic.updatedBy(Sequelize)
     },{
       uniqueKeys: {
         actions_unique: {

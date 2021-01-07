@@ -1,4 +1,6 @@
 'use strict';
+const generic = require('src/container/database/migrationsAttributes')
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('ScurPer', {
@@ -18,16 +20,7 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true,
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('NOW()')
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-        defaultValue: Sequelize.literal('NOW()')
-      }
+      ...generic.timestamps(Sequelize)
     });
   },
   down: async (queryInterface, Sequelize) => {
