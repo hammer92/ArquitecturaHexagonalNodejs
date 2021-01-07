@@ -1,13 +1,13 @@
 const t = require('tcomb')
 const { compose } = require('ramda')
+const { updatedBy, createdBy, timestamps } = require('src/container/http/domain/attributesBy')
 
 const Group = t.struct({
   id: t.maybe(t.String),
   name: t.String,
-  createdBy: t.maybe(t.String),
-  updatedBy: t.maybe(t.String),
-  createdAt: t.maybe(t.Date),
-  updatedAt: t.maybe(t.Date)
+  ...timestamps(t),
+  ...updatedBy(t),
+  ...createdBy(t)
 })
 
 module.exports = compose(
