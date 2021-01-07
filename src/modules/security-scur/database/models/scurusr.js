@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 const sequelizePaginate = require('sequelize-paginate')
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes, modelAttributes) => {
   class ScurUsr extends Model {
     /**
      * Helper method for defining associations.
@@ -22,7 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     config: DataTypes.BOOLEAN,
     admin: DataTypes.BOOLEAN,
     type: DataTypes.STRING,
-    base: DataTypes.INTEGER
+    base: DataTypes.INTEGER,
+    ...modelAttributes.createdBy(DataTypes),
+    ...modelAttributes.updatedBy(DataTypes)
+
   }, {
     sequelize,
     tableName: 'ScurUsr',

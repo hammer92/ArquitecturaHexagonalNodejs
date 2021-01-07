@@ -5,7 +5,7 @@ const {
 // const Attributes = require('../modelsAttributes')
 const sequelizePaginate = require('sequelize-paginate')
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes, modelAttributes) => {
 
   // const attributes = Attributes(DataTypes)
 
@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   ScurGps.init({
     name: DataTypes.STRING,
     state: DataTypes.BOOLEAN,
-    // ...attributes
+    ...modelAttributes.createdBy(DataTypes),
+    ...modelAttributes.updatedBy(DataTypes)
   }, {
     sequelize,
     tableName: 'ScurGps',

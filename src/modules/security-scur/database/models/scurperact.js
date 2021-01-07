@@ -4,7 +4,7 @@ const {
 } = require('sequelize');
 const sequelizePaginate = require('sequelize-paginate')
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize, DataTypes, modelAttributes) => {
   class ScurPerAct extends Model {
     /**
      * Helper method for defining associations.
@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     pKScurPer: DataTypes.INTEGER,
     state: DataTypes.BOOLEAN,
     type: DataTypes.STRING,
-    base: DataTypes.INTEGER
+    base: DataTypes.INTEGER,
+    ...modelAttributes.createdBy(DataTypes),
+    ...modelAttributes.updatedBy(DataTypes)
   }, {
     sequelize,
     tableName: 'ScurPerAct',
