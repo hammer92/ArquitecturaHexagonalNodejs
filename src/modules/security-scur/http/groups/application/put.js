@@ -11,8 +11,8 @@ module.exports = ({ repository: { security: { GpsRepository } }}, {}) => {
       .then(() =>{
         const group = Group(body)
         return GpsRepository.update(group, {
-          where: { id }
-        }).then((data)=> console.log(data))
+          where: { id },
+        }).then(([status, result])=> result)
       })
       .catch(error => {
         throw new Error(error)
