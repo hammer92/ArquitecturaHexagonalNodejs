@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize')
+const modelAttributes = require('./modelAttributes')
 const globModule = require('src/container/utils/globModule')
 
 module.exports = ({ config }) => {
@@ -17,7 +18,7 @@ module.exports = ({ config }) => {
   const models = globModule('/database/models/*.js', false)
 
   Object.keys(models).forEach(modelName => {
-    const model = require(models[modelName])(sequelize, Sequelize.DataTypes);
+    const model = require(models[modelName])(sequelize, Sequelize.DataTypes, modelAttributes);
     db.models[model.name] = model;
   });
 
