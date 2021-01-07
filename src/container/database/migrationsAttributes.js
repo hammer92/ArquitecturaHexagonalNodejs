@@ -1,7 +1,7 @@
 const createdBy = (Sequelize)=>{
   return {
     createdByType: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(20)
     },
     createdByBase: {
       type: Sequelize.INTEGER
@@ -12,7 +12,7 @@ const createdBy = (Sequelize)=>{
 const updatedBy = (Sequelize)=>{
   return {
     updatedByType: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING(20)
     },
     updatedByBase: {
       type: Sequelize.INTEGER
