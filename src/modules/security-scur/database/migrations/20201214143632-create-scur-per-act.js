@@ -1,5 +1,5 @@
 'use strict';
-const generic = require('src/container/database/migrationsAttributes')
+const { timestamps, createdBy, updatedBy} = require('src/container/database/migrationsAttributes')
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -24,9 +24,9 @@ module.exports = {
       base: {
         type: Sequelize.INTEGER
       },
-      ...generic.timestamps(Sequelize),
-      ...generic.createdBy(Sequelize),
-      ...generic.updatedBy(Sequelize)
+      ...timestamps(Sequelize),
+      ...createdBy(Sequelize),
+      ...updatedBy(Sequelize)
     },{
       uniqueKeys: {
         actions_unique: {

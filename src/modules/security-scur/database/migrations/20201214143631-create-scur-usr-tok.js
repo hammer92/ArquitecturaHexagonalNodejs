@@ -1,6 +1,4 @@
 'use strict';
-const generic = require('src/container/database/migrationsAttributes')
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('ScurUsrTok', {
