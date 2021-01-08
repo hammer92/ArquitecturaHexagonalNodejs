@@ -15,7 +15,7 @@ module.exports = ({ config }) => {
     models: {}
   }
 
-  const models = globModule('/database/models/*.js', false)
+  const models = globModule('/database/models/*.js')
 
   Object.keys(models).forEach(modelName => {
     const model = require(models[modelName])(sequelize, Sequelize.DataTypes, modelAttributes);
