@@ -2,7 +2,6 @@
 const {
   Model
 } = require('sequelize');
-// const Attributes = require('../modelsAttributes')
 const sequelizePaginate = require('sequelize-paginate')
 
 module.exports = (sequelize, DataTypes, modelAttributes) => {

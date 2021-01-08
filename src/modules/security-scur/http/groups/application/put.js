@@ -3,7 +3,7 @@
  */
 const { Group } = require('../domain/index')
 
-module.exports = ({ repository: { security: { GpsRepository } }}, {}) => {
+module.exports = ({ security: { groups: { GpsRepository } } }, {}) => {
   // code for update item
   const update = ({ id, body }) => {
     return Promise

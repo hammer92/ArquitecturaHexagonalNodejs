@@ -1,5 +1,11 @@
 const Status = require('http-status')
-module.exports = ({ application: { security: { deleteCase } }, response: { Success, Fail }, logger }) => {
+module.exports = ({
+  application: {
+    security: {
+      groups: { deleteCase }
+    }
+  }, response: { Success, Fail }, logger
+}) => {
 
   return (req, res) => {
     deleteCase.remove({ id: req.params.idGroup })

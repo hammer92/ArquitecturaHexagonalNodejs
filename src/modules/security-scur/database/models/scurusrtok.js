@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     lastUsedAt: DataTypes.STRING
   }, {
     sequelize,
-    paranoid: true,
     tableName: 'ScurUsrTok',
     modelName: 'ScurUsrTok',
   });

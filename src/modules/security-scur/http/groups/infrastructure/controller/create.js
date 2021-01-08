@@ -1,5 +1,11 @@
 const Status = require('http-status')
-module.exports = ({ application: { security: { postCase } }, response: { Success, Fail }, logger }) => {
+module.exports = ({
+  application: {
+    security: {
+      groups: { postCase }
+    }
+  }, response: { Success, Fail }, logger
+}) => {
 
   return (req, res) => {
     postCase.create({ body: req.body })

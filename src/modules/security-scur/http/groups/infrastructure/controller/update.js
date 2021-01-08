@@ -1,5 +1,11 @@
 const Status = require('http-status')
-module.exports = ({ application: { security: { putCase } }, response: { Success, Fail }, logger }) => {
+module.exports = ({
+  application: {
+    security: {
+      groups: { putCase }
+    }
+  }, response: { Success, Fail }, logger
+}) => {
 
   return (req, res) => {
     putCase.update({ id: req.params.idGroup, body: req.body })

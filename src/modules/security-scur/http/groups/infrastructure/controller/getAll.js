@@ -1,5 +1,11 @@
 const Status = require('http-status')
-module.exports = ({ application: { security: { getCase } }, response: { Success, Fail }, logger }) => {
+module.exports = ({
+  application: {
+    security: {
+      groups: { getCase }
+    }
+  }, response: { Success, Fail }, logger
+}) => {
 
   return (req, res) => {
     getCase.allPaginate(req).then(data => {
