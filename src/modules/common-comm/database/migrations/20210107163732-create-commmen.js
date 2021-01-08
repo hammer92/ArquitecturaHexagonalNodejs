@@ -2,7 +2,7 @@
 const { timestamps, createdBy, updatedBy} = require('src/container/database/migrationsAttributes')
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('CommMod', {
+    await queryInterface.createTable('CommMen', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -15,9 +15,9 @@ module.exports = {
       name: {
         type: Sequelize.STRING(50)
       },
-      pKCommMod: {
+      pKCommMen: {
         type: Sequelize.INTEGER,
-        references: { model: 'CommMod', key: 'id' }
+        references: { model: 'CommMen', key: 'id' }
       },
       pKScurPer: {
         type: Sequelize.STRING,
@@ -29,6 +29,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('CommMod');
+    await queryInterface.dropTable('CommMen');
   }
 };

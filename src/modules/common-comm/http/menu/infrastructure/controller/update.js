@@ -1,7 +1,7 @@
 module.exports = ({
   application: {
     common: {
-      modules: { putCase }
+      menu: { putCase }
     }
   }, response: { Success, Fail }, Status
 }) => {

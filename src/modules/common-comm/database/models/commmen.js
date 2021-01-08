@@ -5,7 +5,7 @@ const {
 const sequelizePaginate = require('sequelize-paginate')
 
 module.exports = (sequelize, DataTypes, { createdBy, updatedBy }) => {
-  class CommMod extends Model {
+  class CommMen extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,24 +13,27 @@ module.exports = (sequelize, DataTypes, { createdBy, updatedBy }) => {
      */
     static associate (models) {
       // define association here
+      models['CommMen'].hasMany(models['CommMen'], { as: 'menu', foreignKey: 'pKCommMen' })
+      models['CommMen'].belongsTo(models['ScurPerAct'],
+        { as: 'permiso', foreignKey: 'pKScurPer',targetKey:'pKScurPer' })
     }
   }
 
-  CommMod.init({
+  CommMen.init({
     icon: DataTypes.TEXT,
     name: DataTypes.TEXT,
-    pKCommMod: DataTypes.TEXT,
+    pKCommMen: DataTypes.TEXT,
     pKScurPer: DataTypes.TEXT,
     ...createdBy(DataTypes),
     ...updatedBy(DataTypes)
   }, {
     sequelize,
     paranoid: true,
-    tableName: 'CommMod',
-    modelName: 'CommMod',
+    tableName: 'CommMen',
+    modelName: 'CommMen',
   })
 
-  sequelizePaginate.paginate(CommMod)
+  sequelizePaginate.paginate(CommMen)
 
-  return CommMod
+  return CommMen
 }
