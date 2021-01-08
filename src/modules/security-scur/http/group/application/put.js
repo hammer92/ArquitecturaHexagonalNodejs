@@ -1,9 +1,6 @@
-/**
- * this file will hold all the get use-case for company domain
- */
 const { Group } = require('../domain/index')
 
-module.exports = ({ security: { groups: { GpsRepository } } }, {}) => {
+module.exports = ({ security: { group: { GpsRepository } } }, {}) => {
   // code for update item
   const update = ({ id, body }) => {
     return Promise

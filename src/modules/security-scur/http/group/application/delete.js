@@ -1,4 +1,4 @@
-module.exports = ({ security: { groups: { GpsRepository } } }, {}) => {
+module.exports = ({ security: { group: { GpsRepository } } }, {}) => {
   // code for change state the item
   const remove = ({ id }) => {
     return Promise

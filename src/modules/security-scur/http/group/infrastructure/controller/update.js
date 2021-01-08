@@ -1,10 +1,9 @@
-const Status = require('http-status')
 module.exports = ({
   application: {
     security: {
-      groups: { putCase }
+      group: { putCase }
     }
-  }, response: { Success, Fail }, logger
+  }, response: { Success, Fail }, Status
 }) => {
 
   return (req, res) => {
@@ -13,7 +12,6 @@ module.exports = ({
         res.status(Status.OK).json(Success(data))
       })
       .catch((error) => {
-        logger.error(error)
         res.status(Status.BAD_REQUEST).json(
           Fail(error.message))
       })

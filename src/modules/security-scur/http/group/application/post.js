@@ -1,5 +1,5 @@
 const { Group }  = require('../domain')
-module.exports = ({ security: { groups: { GpsRepository } } }, {}) => {
+module.exports = ({ security: { group: { GpsRepository } } }, {}) => {
   // code for create new item
   const create = ({ body }) => {
     return Promise

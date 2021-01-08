@@ -1,4 +1,4 @@
-module.exports = ({ security: { groups: { GpsRepository } } }, {}) => {
+module.exports = ({ security: { group: { GpsRepository } } }, {}) => {
   // code for getting all the items paginate
   const allPaginate = ({ query }) => {
     return Promise

@@ -1,14 +1,13 @@
-const Status = require('http-status')
 module.exports = ({
   application: {
     security: {
-      groups: { deleteCase }
+      group: { postCase }
     }
-  }, response: { Success, Fail }, logger
+  }, response: { Success, Fail }, logger, Status
 }) => {
 
   return (req, res) => {
-    deleteCase.remove({ id: req.params.idGroup })
+    postCase.create({ body: req.body })
       .then(data => {
         res.status(Status.OK).json(Success(data))
       })

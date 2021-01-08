@@ -1,10 +1,9 @@
-const Status = require('http-status')
 module.exports = ({
   application: {
     security: {
-      groups: { getCase }
+      group: { getCase }
     }
-  }, response: { Success, Fail }, logger
+  }, response: { Success, Fail }, Status
 }) => {
 
   return (req, res) => {

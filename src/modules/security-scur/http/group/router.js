@@ -3,9 +3,9 @@ const { Router } = require('express')
 const instance = require('./infrastructure/controller')
 
 
-module.exports = ({ application, response, logger}) => {
+module.exports = (container) => {
   const router = Router()
-  const controller = instance({ application, response, logger})
+  const controller = instance(container)
 
   router.get('/', controller.getAllGps)
   router.post('/', controller.createGps)
