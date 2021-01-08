@@ -44,6 +44,7 @@ module.exports = ({ config, logger }) => {
    */
 
   apiRouter.use('/security', createModuleRoutes('security-scur').router)
+  apiRouter.use('/common', createModuleRoutes('common-comm').router)
 
   router.use(`/api/${config.version}`, apiRouter)
   router.use(partialRight(errorHandler, [logger, config]))
