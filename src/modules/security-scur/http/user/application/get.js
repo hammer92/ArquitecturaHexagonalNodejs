@@ -1,14 +1,13 @@
 module.exports = ({
   repository: {
-    security: { group: { GpsRepository } }
+    security: { user: { UsrRepository } }
   }
-}, {}) => {
-  // code for getting all the items paginate
+}, {}) => {  // code for getting all the items paginate
   const allPaginate = ({ query }) => {
     return Promise
       .resolve()
       .then(() =>
-        GpsRepository.getPaginate({
+        UsrRepository.getPaginate({
           attributes: query.attributes || 'id,name',
           where: { state: true }
         })

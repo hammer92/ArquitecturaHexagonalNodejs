@@ -1,16 +1,15 @@
-const { Group }  = require('../domain')
+const { User }  = require('../domain')
 module.exports = ({
   repository: {
-    security: { group: { GpsRepository } }
+    security: { user: { UsrRepository } }
   }
-}, {}) => {
-  // code for create new item
+}, {}) => {  // code for create new item
   const create = ({ body }) => {
     return Promise
       .resolve()
       .then(() =>{
-        const group = Group(body)
-        return GpsRepository.create(group)
+        const user = User(body)
+        return UsrRepository.create(user)
       })
       .catch(error => {
         throw new Error(error)

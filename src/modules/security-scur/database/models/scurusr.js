@@ -3,6 +3,8 @@ const {
   Model
 } = require('sequelize');
 const sequelizePaginate = require('sequelize-paginate')
+const { encryptPassword } = require('src/container/support/encryption')
+
 module.exports = (sequelize, DataTypes, modelAttributes) => {
   class ScurUsr extends Model {
     /**
@@ -33,5 +35,11 @@ module.exports = (sequelize, DataTypes, modelAttributes) => {
     modelName: 'ScurUsr',
   });
   sequelizePaginate.paginate(ScurUsr)
+
+  ScurUsr.beforeCreate("encryptPassword", (user)=>{
+    console.log("encryptPassword", authUser)
+    user.password = encryptPassword(user.password)
+  })
+
   return ScurUsr;
 };

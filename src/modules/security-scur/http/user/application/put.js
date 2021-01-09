@@ -1,17 +1,16 @@
-const { Group } = require('../domain/index')
+const { User } = require('../domain/index')
 
 module.exports = ({
   repository: {
-    security: { group: { GpsRepository } }
+    security: { user: { UsrRepository } }
   }
-}, {}) => {
-  // code for update item
+}, {}) => {  // code for update item
   const update = ({ id, body }) => {
     return Promise
       .resolve()
       .then(() =>{
-        const group = Group(body)
-        return GpsRepository.update(group, {
+        const user = User(body)
+        return UsrRepository.update(user, {
           where: { id },
         }).then(([status, result])=> result)
       })

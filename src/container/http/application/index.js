@@ -1,7 +1,7 @@
 const globModule = require('src/container/utils/globModule')
 const { assoc } = require('ramda')
 
-module.exports = ({ repository }) => {
+module.exports = ({ repository, jwt }) => {
   const caseUseModule = {}
   const base = {}
 
@@ -9,7 +9,7 @@ module.exports = ({ repository }) => {
 
   Object.keys(cases).forEach(modelName =>{
     const [modules, app] = modelName.split('.')
-    const caseModel = require(cases[modelName])(repository, base)
+    const caseModel = require(cases[modelName])({ repository, jwt }, base)
     caseUseModule[modules] = assoc(app,caseModel, caseUseModule[modules] || {})
   })
 

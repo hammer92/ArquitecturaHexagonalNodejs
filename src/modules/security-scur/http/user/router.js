@@ -2,17 +2,14 @@
 const { Router } = require('express')
 const instance = require('./infrastructure/controller')
 
-
-module.exports = ({ application, response, logger, Status, auth }) => {
+module.exports = (container) => {
   const router = Router()
-  const controller = instance({ application, response, logger, Status })
+  const controller = instance(container)
 
-
-  router.use(auth.authenticate())
-  router.get('/', controller.getAllGps)
-  router.post('/', controller.createGps)
-  router.put('/:idGroup', controller.updateGps)
-  router.delete('/:idGroup', controller.removeGps)
+  router.get('/', controller.getAllUser)
+  router.post('/', controller.createUser)
+  router.put('/:idUser', controller.updateUser)
+  router.delete('/:idUser', controller.removeUser)
 
   return router
 }

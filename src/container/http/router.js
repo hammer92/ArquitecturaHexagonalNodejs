@@ -43,6 +43,7 @@ module.exports = ({ config, logger }) => {
    * The `controllerPath` is relative to the `src/modules` folder
    */
 
+  apiRouter.post('/login', createModuleRoutes('security-scur').login)
   apiRouter.use('/security', createModuleRoutes('security-scur').router)
   apiRouter.use('/common', createModuleRoutes('common-comm').router)
 

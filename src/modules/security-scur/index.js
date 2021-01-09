@@ -1,10 +1,12 @@
 const container = require('src/container')
 const router = require('./router')
+const instance = require('./http/user/infrastructure/controller')
 
 module.exports = () => {
-  const { application, logger, response } = container.cradle
+  const { application, logger, response, auth } = container.cradle
 
   return {
-    router: router({ logger, response, application })
+    login: instance({ application, logger, response, auth }).AuthUser,
+    router: router({ logger, response, application, auth })
   }
 }

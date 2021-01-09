@@ -1,13 +1,13 @@
 module.exports = ({
   repository: {
-    security: { group: { GpsRepository } }
+    security: { user: { UsrRepository } }
   }
 }, {}) => {
   // code for change state the item
   const remove = ({ id }) => {
     return Promise
       .resolve()
-      .then(() => GpsRepository.destroy({ where: { id } }))
+      .then(() => UsrRepository.destroy({ where: { id } }))
       .catch((error) => {
         throw new Error(error)
       })
