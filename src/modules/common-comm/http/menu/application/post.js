@@ -1,5 +1,9 @@
 const { Module } = require('../domain')
-module.exports = ({ common: { menu: { menRepository } } } , {}) => {
+module.exports = ({
+  repository: {
+    common: { menu: { menRepository } }
+  }
+}, {}) => {
   // code for create new item
   const createModule = ({ body }) => {
     return Promise

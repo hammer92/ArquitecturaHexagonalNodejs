@@ -1,5 +1,7 @@
 module.exports = ({
-  common: { setting: { setRepository } }
+  repository: {
+    common: { setting: { setRepository } }
+  }
 }, {}) => {
   // code for getting all the items paginate
   const allSetting = ({ query }) => {

@@ -1,4 +1,8 @@
-module.exports = ({ common: { menu: { menRepository } } }, {}) => {
+module.exports = ({
+  repository: {
+    common: { menu: { menRepository } }
+  }
+}, {}) => {
   // code for getting all the items paginate
   const allMenu = () => {
     return Promise

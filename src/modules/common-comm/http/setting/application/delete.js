@@ -1,4 +1,8 @@
-module.exports = ({ common: { setting: { setRepository } } }, {}) => {
+module.exports = ({
+  repository: {
+    common: { setting: { setRepository } }
+  }
+}, {}) => {
   // code for change state the item
   const removeSetting = ({ id }) => {
     return Promise

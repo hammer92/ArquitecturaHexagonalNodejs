@@ -1,5 +1,9 @@
 const { Setting } = require('../domain')
-module.exports = ({ common: { setting: { setRepository } } }, {}) => {
+module.exports = ({
+  repository: {
+    common: { setting: { setRepository } }
+  }
+}, {}) => {
   // code for update item
   const updateSetting = ({ id, body }) => {
     return Promise
