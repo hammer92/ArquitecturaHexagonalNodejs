@@ -1,7 +1,7 @@
 const { comparePassword } = require('src/container/support/encryption')
 
 module.exports = (
-  { models: { ScurUsr },/*sequelize, Sequelize*/ },
+  { models: { ScurUsr },sequelize/*sequelize, Sequelize*/ },
   { paginateGlobal, updateGlobal }) => {
 
   const getPaginate = (arg) => paginateGlobal(ScurUsr, arg)
@@ -19,7 +19,7 @@ module.exports = (
 
   const findOne = (...args) =>
     ScurUsr.findOne(...args)
-      .then(({ dataValues }) => dataValues)
+      .then(({ dataValues }) => dataValues || {})
       .catch((error) => { throw new Error(error) })
 
   const validatePassword = (endcodedPassword) => (password) =>

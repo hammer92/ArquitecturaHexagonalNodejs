@@ -10,7 +10,7 @@ const createModuleRoutes = require('../utils/create_modules')
 const httpLogger = require('./middlewares/http_logger')
 const errorHandler = require('./middlewares/error_handler')
 
-module.exports = ({ config, logger }) => {
+module.exports = ({ config, logger, auth }) => {
   const router = Router()
 
   if (config.env === 'development') {
@@ -43,7 +43,7 @@ module.exports = ({ config, logger }) => {
    * The `controllerPath` is relative to the `src/modules` folder
    */
 
-  apiRouter.post('/login', createModuleRoutes('security-scur').login)
+  apiRouter.post('/login', auth.login)
   apiRouter.use('/security', createModuleRoutes('security-scur').router)
   apiRouter.use('/common', createModuleRoutes('common-comm').router)
 

@@ -14,6 +14,8 @@ module.exports = (sequelize, DataTypes, modelAttributes) => {
      */
     static associate(models) {
       // define association here
+      models['ScurUsr'].belongsTo(models['ScurUsrTok'],{as:'token',  foreignKey:"id", targetKey:'pKScurUsr'})
+
     }
   }
   ScurUsr.init({

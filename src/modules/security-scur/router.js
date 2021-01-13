@@ -3,9 +3,9 @@ const user_router = require('./http/user/router')
 const { Router } = require('express')
 const Status = require('http-status')
 const router = Router()
-module.exports = ({ application, response, logger, auth, jwt }) => {
+module.exports = ({ application, response, logger, auth }) => {
 
   router.use('/groups', groups_router({ application, response, logger, Status, auth }))
-  router.use('/user', user_router({ application, response, logger, Status, auth, jwt }))
+  router.use('/user', user_router({ application, response, logger, Status, auth }))
   return router
 }

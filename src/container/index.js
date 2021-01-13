@@ -10,8 +10,7 @@ const response = require('./support/response')
 const date = require('./support/date')
 const repository = require('./http/repositories')
 const application = require('./http/application')
-const auth = require('./http/auth')
-const jwt = require('./jwt')
+const auth = require('./auth')
 
 const index = createContainer()
 
@@ -28,8 +27,7 @@ index
     config: asValue(config),
     repository: asFunction(repository).singleton(),
     application: asFunction(application).singleton(),
-    auth: asFunction(auth).singleton(),
-    jwt: asFunction(jwt).singleton()
+    auth: asFunction(auth).singleton()
   })
 
 module.exports = index
