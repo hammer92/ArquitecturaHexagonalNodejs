@@ -11,6 +11,7 @@ module.exports = (
     .catch((error) => { throw new Error(error) })
 
   const updateLastUsedAt = (id) => {
+    console.log("updateLastUsedAt")
     return ScurUsrTok.update({
       lastUsedAt: Sequelize.fn('NOW')
     }, {

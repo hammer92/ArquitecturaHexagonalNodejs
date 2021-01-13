@@ -24,14 +24,20 @@ module.exports = ({ config, repository: { UsrRepository, TokRepository } }) => {
       }
     })
       .then((user) => {
-        if(user) {
+        if(!user) {
           return done('Usuario no encontrado', null)
         }
         return TokRepository.updateLastUsedAt(user.token.id).then(() => {
           done(null, userToken(user))
-        }).catch((error) => done(error, null))
+        }).catch((error) => {
+          console.log(error)
+          done(error, null)
+        })
       })
-      .catch((error) => done(error, null))
+      .catch((error) => {
+        console.log(error)
+        done(error, null)
+      })
   })
 
   passport.use(strategy)

@@ -4,8 +4,8 @@ const userToken = t.struct({
   id: t.Number,
   config: t.Boolean,
   admin: t.Boolean,
-  type: t.String,
-  base: t.Number
+  type: t.maybe(t.String),
+  base: t.maybe(t.Number)
 })
 
 module.exports = userToken
