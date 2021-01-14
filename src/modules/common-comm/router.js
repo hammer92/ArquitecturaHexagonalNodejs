@@ -3,6 +3,7 @@ const modules_router = require('./http/menu/router')
 const departments_router = require('./http/department/router')
 const cities_router = require('./http/city/router')
 const branchOffices_router = require('./http/branchOffice/router')
+const areas_router = require('./http/area/router')
 const { Router } = require('express')
 const Status = require('http-status')
 
@@ -13,5 +14,6 @@ module.exports = ({ application, response, logger }) => {
   router.use('/department',departments_router({ application, response, logger, Status}) )
   router.use('/city',cities_router({ application, response, logger, Status}) )
   router.use('/branch-office',branchOffices_router({ application, response, logger, Status}) )
+  router.use('/area',areas_router({ application, response, logger, Status}) )
   return router
 }

@@ -13,10 +13,12 @@ module.exports = (sequelize, DataTypes, { createdBy, updatedBy }) => {
      */
     static associate(models) {
       // define association here
+      models['CommAre'].hasMany(models['CommAre'], { as: 'subarea', foreignKey: 'pkCommAre' })
     }
   }
   CommAre.init({
     name: DataTypes.STRING,
+    pkCommAre: DataTypes.INTEGER,
     ...createdBy(DataTypes),
     ...updatedBy(DataTypes)
   }, {
