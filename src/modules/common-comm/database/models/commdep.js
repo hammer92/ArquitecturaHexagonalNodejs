@@ -13,14 +13,12 @@ module.exports = (sequelize, DataTypes, { createdBy, updatedBy }) => {
      */
     static associate(models) {
       // define association here
-      models['CommDep'].hasMany(models['CommCit'],{as:'city',  foreignKey:'pkScurGps'})
+      models['CommDep'].hasMany(models['CommCit'],{as:'city',  foreignKey:'pkCommDep'})
 
     }
   }
   CommDep.init({
-    name: DataTypes.STRING,
-    ...createdBy(DataTypes),
-    ...updatedBy(DataTypes)
+    name: DataTypes.STRING
   }, {
     sequelize,
     paranoid: true,

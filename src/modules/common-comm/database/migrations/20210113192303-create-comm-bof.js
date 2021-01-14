@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       pkCommCit: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         references: { model: 'CommCit', key: 'id' }
       },
       ...timestamps(Sequelize),

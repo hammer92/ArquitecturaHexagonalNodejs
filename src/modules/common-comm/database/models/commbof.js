@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes, { createdBy, updatedBy }) => {
      */
     static associate(models) {
       // define association here
-      models['CommBof'].belongsTo(models['CommCit'],{as:'city',  foreignKey:"id", targetKey:'pkCommCit'})
+      // models['CommBof'].belongsTo(models['CommCit'],{as:'city',  foreignKey:"id", targetKey:'pkCommCit'})
 
     }
   }

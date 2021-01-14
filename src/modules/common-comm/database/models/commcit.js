@@ -14,13 +14,13 @@ module.exports = (sequelize, DataTypes, { createdBy, updatedBy }) => {
     static associate(models) {
       // define association here
       models['CommCit'].hasMany(models['CommBof'],{as: 'branch_office',  foreignKey:'pkCommCit'})
-      models['CommCit'].belongsTo(models['CommDep'],{as:'department',  foreignKey:"id", targetKey:'pkCommDep'})
+      // models['CommCit'].belongsTo(models['CommDep'],{as:'department',  foreignKey:"id", targetKey:'pkCommDep'})
 
     }
   }
   CommCit.init({
     name: DataTypes.STRING,
-    pkCommDep: DataTypes.INTEGER,
+    pkCommDep: DataTypes.STRING,
   }, {
     sequelize,
     paranoid: true,

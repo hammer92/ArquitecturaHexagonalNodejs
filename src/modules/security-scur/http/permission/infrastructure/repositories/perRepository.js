@@ -1,4 +1,4 @@
-module.exports = ({ models: { ScurPer },/*sequelize, Sequelize*/ }, { paginateGlobal, updateGlobal }) => {
+module.exports = ({ models: { ScurPer, ScurPerAct },/*sequelize, Sequelize*/ }, { paginateGlobal, updateGlobal }) => {
 
   const getPaginate = (arg) => paginateGlobal(ScurPer, arg)
 
